@@ -20,3 +20,4 @@ Route::get('/', 'BoxController@index')->name('home');
 Route::get('/gifts', 'GiftController@index')->name('gifts')->middleware('auth');
 Route::get('/addgift/{gift}', 'GiftController@addGift')->name('addGift');
 Route::get('/open', 'BoxController@open')->name('boxOpen');
+Route::get('/profile', 'ProfileController@index')->name('profile');
