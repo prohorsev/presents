@@ -14,7 +14,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "2.4"
+        "laravel/ui": "2.4",
+        "socialiteproviders/vkontakte": "^4.2"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
