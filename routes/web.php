@@ -21,3 +21,7 @@ Route::get('/gifts', 'GiftController@index')->name('gifts')->middleware('auth');
 Route::get('/addgift/{gift}', 'GiftController@addGift')->name('addGift');
 Route::get('/open', 'BoxController@open')->name('boxOpen');
 Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/friends', 'FriendsController@index')->name('friends');
+
+Route::get('login/vk', 'LoginVKController@redirectToProvider')->name('loginVK');
+Route::get('login/vk/callback', 'LoginVKController@handleProviderCallback');
