@@ -1,0 +1,64 @@
+@import "../variables";
+
+.congratulation {
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  &__left {
+    width: 33%;
+  }
+  & h1 {
+    text-align: center;
+  }
+  &__forms {
+    margin: 30px 0 0 0;
+  }
+  &__forms input[type=text], &__forms input[type=number],&__forms input[type=date]  {
+    width: 300px;
+    height: 46px;
+    border-radius: 10px;
+    border: solid 1px $colorTextHover;
+    outline: none;
+    padding: 0 5px;
+    font-size: 16px;
+  }
+  &__forms input:active {
+    outline: none;
+  }
+  &__forms h3 {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  &__user:last-child {
+    margin-bottom: 0;
+  }
+  &__user svg {
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  &__user svg:hover {
+    transform: scale(1.1);
+  }
+  &__forms p {
+    color: $colorTextHover;
+    font-size: 16px;
+    margin: 0 0 20px 90px;
+    cursor: pointer;
+  }
+  &__btn {
+    margin-left: 47px;
+  }
+  &__form {
+    margin-bottom: 15px;
+  }
+
+}

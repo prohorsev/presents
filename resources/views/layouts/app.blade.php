@@ -41,7 +41,7 @@
                                     </li>
                                 @endif
                             @else
-                                <li class="">
+                                <li class="menu__li">
                                     <a class="" href="{{ route('profile') }}">
                                         {{ Auth::user()->name }}
                                     </a>
