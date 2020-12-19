@@ -1,0 +1,61 @@
+@import "../variables";
+.header {
+  width: 100%;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 2%;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: $colorText;
+  transition: 0.5s;
+  & p {
+    font-size: 30px;
+  }
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  &__list {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  &__li {
+    margin-right: 4%;
+  }
+  &__li:last-child {
+    margin-right: 0;
+  }
+  &__li a {
+    font-size: 20px;
+    color: $colorText;
+    white-space: nowrap;
+  }
+  &__li a:hover {
+    color: $colorTextHover;
+  }
+  &__login {
+    display: flex;
+    align-items: center;
+    color: #757575;
+    transition: 0.5s;
+  }
+  &__login:hover {
+    transform: scale(1.1);
+  }
+  &__login p {
+    margin-right: 10px;
+  }
+}
