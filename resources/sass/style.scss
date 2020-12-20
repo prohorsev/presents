@@ -1,14 +1,11 @@
 @import "header/header";
 @import "footer/footer";
-@import "index__style/index__style";
+@import "content/index__style";
+@import "content/makeCongratulation";
 @import "variables";
 
-$colorText: #1C1B1B;
-$colorTextHover: #356EAD;
-$colorButton: #ffffff;
-
 * {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -28,6 +25,7 @@ ul {
 
 .container {
   max-width: 1120px;
+  margin: auto;
 }
 
 .wrapper {
@@ -40,3 +38,19 @@ ul {
   width: 100%;
   flex: 1 0 auto;
 }
+
+.btn {
+  background-color: $backgroundButton;
+  padding: 20px;
+  font-size: 18px;
+  color: $colorButton;
+  outline: none;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.none {
+  display: none;
+}
+

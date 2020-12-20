@@ -40,9 +40,11 @@
                         </defs>
                     </svg>
                 </div>
+                @guest
                 <div class="index__login">
-                    <a href="#">Организовать подарок через VK</a>
+                    <a href="{{ route('loginVK') }}">Организовать подарок через VK</a>
                 </div>
+                @endguest
             </div>
         </div>
     </div>
