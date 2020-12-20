@@ -15,4 +15,4 @@
 * php artisan key:generate
 * php artisan migrate
 * php artisan db:seed (если ошибка composer dump-autoload)
-* npm run dev
+* npm run dev (каждый раз после выгрузки последней версии из репозитория)
