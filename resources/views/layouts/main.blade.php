@@ -47,7 +47,7 @@
                             </a></li>
                         @auth
                         <li class="menu__li"><a href="#">Каталог подарков</a></li>
-                        <li class="menu__li"><a href="#">Организовать поздравление</a></li>
+                        <li class="menu__li"><a href="{{ route('room.create') }}">Организовать поздравление</a></li>
                         @endauth
                     </ul>
                     <ul class="menu__list">
