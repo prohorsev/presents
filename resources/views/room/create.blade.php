@@ -9,44 +9,45 @@
                 <div class="congratulation__left">
                     <div class="congratulation__forms">
                         <h3>Заполните форму для поздравления</h3>
-                        <form action="" method="post" class="congratulation__form">
+                        <form action="{{ route('room.store') }}" method="post" class="congratulation__form">
+                            @csrf
                             <div class="congratulation__user">
-                                <input type="text" placeholder="Ваше имя" name="name">
-                                @if($errors->has('name'))
+{{--                                <input type="text" placeholder="Ваше имя" name="name">--}}
+{{--                                @if($errors->has('name'))--}}
+{{--                                    <div class="congratulation__validation" role="alert">--}}
+{{--                                        @foreach($errors->get('name') as $err)--}}
+{{--                                            <p>{{ $err }}</p>--}}
+{{--                                        @endforeach--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
+{{--                                <input type="email" placeholder="Ваша почта" name="email">--}}
+{{--                                @if($errors->has('email'))--}}
+{{--                                    <div class="congratulation__validation" role="alert">--}}
+{{--                                        @foreach($errors->get('email') as $err)--}}
+{{--                                            <p>{{ $err }}</p>--}}
+{{--                                        @endforeach--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
+                                <input type="text" placeholder="Кого будем поздравля" name="birthday_person">
+                                @if($errors->has('birthday_person'))
                                     <div class="congratulation__validation" role="alert">
-                                        @foreach($errors->get('name') as $err)
+                                        @foreach($errors->get('birthday_person') as $err)
                                             <p>{{ $err }}</p>
                                         @endforeach
                                     </div>
                                 @endif
-                                <input type="email" placeholder="Ваша почта" name="email">
-                                @if($errors->has('email'))
+                                <input type="date" placeholder="Когда поздравить" name="birthday_date">
+                                @if($errors->has('birthday_date'))
                                     <div class="congratulation__validation" role="alert">
-                                        @foreach($errors->get('email') as $err)
+                                        @foreach($errors->get('birthday_date') as $err)
                                             <p>{{ $err }}</p>
                                         @endforeach
                                     </div>
                                 @endif
-                                <input type="text" placeholder="Кого будем поздравля" name="birthday-person">
-                                @if($errors->has('birthday-person'))
+                                <input type="number" placeholder="Бюджет подарка" name="birthday_sum">
+                                @if($errors->has('birthday_sum'))
                                     <div class="congratulation__validation" role="alert">
-                                        @foreach($errors->get('birthday-person') as $err)
-                                            <p>{{ $err }}</p>
-                                        @endforeach
-                                    </div>
-                                @endif
-                                <input type="date" placeholder="Когда поздравить" name="birthday-date">
-                                @if($errors->has('birthday-date'))
-                                    <div class="congratulation__validation" role="alert">
-                                        @foreach($errors->get('birthday-date') as $err)
-                                            <p>{{ $err }}</p>
-                                        @endforeach
-                                    </div>
-                                @endif
-                                <input type="number" placeholder="Бюджет подарка" name="birthday-sum">
-                                @if($errors->has('birthday-sum'))
-                                    <div class="congratulation__validation" role="alert">
-                                        @foreach($errors->get('birthday-sum') as $err)
+                                        @foreach($errors->get('birthday_sum') as $err)
                                             <p>{{ $err }}</p>
                                         @endforeach
                                     </div>

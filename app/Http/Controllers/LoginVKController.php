@@ -17,7 +17,7 @@ class LoginVKController extends Controller
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information from Vkontakte.
      *
      * @return \Illuminate\Http\Response
      */

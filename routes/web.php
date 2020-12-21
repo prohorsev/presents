@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +18,9 @@ Auth::routes();
 // роуты группы для создание просмотра, просмотра поздравления, подтверждения участия в поздравление
 Route::group([
     'namespace' => 'Room',
-    'prefix' => 'room',
-    'as' => 'room.'
 ], function() {
-    Route::get('create', 'RoomController@create')->name('create');// создание поздравления
+    Route::resource('room', 'RoomController');
+    Route::get('/rooms/{room}/invite', 'InviteController@invite')->name('invite');
 });
 
 
