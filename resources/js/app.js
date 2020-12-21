@@ -20,6 +20,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('congratulation-forms-component', require('./components/CongratulationFormsComponent').default);
+Vue.component('congratulation-user-component', require('./components/CongratulationUserComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

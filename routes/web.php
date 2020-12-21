@@ -16,7 +16,18 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+// роуты группы для создание просмотра, просмотра поздравления, подтверждения участия в поздравление
+Route::group([
+    'namespace' => 'Room',
+    'prefix' => 'room',
+    'as' => 'room.'
+], function() {
+    Route::get('create', 'RoomController@create')->name('create');// создание поздравления
+});
+
+
 Route::get('/', 'BoxController@index')->name('home');
+Route::get('/congratulation', 'CongratulationController@index')->name('congratulation');
 Route::get('/gifts', 'GiftController@index')->name('gifts')->middleware('auth');
 Route::get('/addgift/{gift}', 'GiftController@addGift')->name('addGift');
 Route::get('/open', 'BoxController@open')->name('boxOpen');
