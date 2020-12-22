@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginVKController extends Controller
 {
+    protected $backUrl = '';
     public function redirectToProvider()
     {
         return Socialite::driver('vkontakte')
@@ -21,7 +22,7 @@ class LoginVKController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback(Request $request)
     {
         if (Auth::check()) {
             return redirect()->route('home');
@@ -47,6 +48,12 @@ class LoginVKController extends Controller
         }
 
         Auth::login($userInSystem);
-        return redirect()->route('home');
+        if (session()->has('invite')) {
+            $inviteUrl = $request->session()->pull('invite');
+            return redirect()->to($inviteUrl);
+        } else {
+            return redirect()->route('home');
+        }
+
     }
 }
