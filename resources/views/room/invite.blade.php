@@ -31,6 +31,12 @@
                     </a></div>
             @endguest
 
+            @auth
+                <p>Организатор поздравления {{ $userOrg->name }}</p><br><br><br>
+                <a href="{{route('join', $room->id)}}">Присоединиться</a>
+
+            @endauth
+
         </div>
     </div>
 

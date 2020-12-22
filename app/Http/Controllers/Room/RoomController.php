@@ -31,7 +31,7 @@ class RoomController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -50,25 +50,36 @@ class RoomController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $room = Room::query()->find($id);
-        $friends = \DB::table('room_user')->join('users', 'users.id', '=', 'room_user.user_id')->select('name')
-            ->where('room_id', '=', $id)->get();
-//        dd($friends);
+        if (empty($room)) {
+            return redirect()->route('home');
+        }
+        $organisator = \DB::table('rooms')
+            ->join('users', 'users.id', '=', 'rooms.org_user_id')
+            ->select('name')
+            ->where('rooms.id', '=', $id)
+            ->first();
+        $friends = \DB::table('room_user')
+            ->join('users', 'users.id', '=', 'room_user.user_id')
+            ->select('name')
+            ->where('room_id', '=', $id)
+            ->get();
         return view('room.show', [
             'room' => $room,
             'friends' => $friends,
+            'organisator' => $organisator,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -79,8 +90,8 @@ class RoomController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -91,7 +102,7 @@ class RoomController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
