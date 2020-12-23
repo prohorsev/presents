@@ -1,0 +1,56 @@
+@import "header/header";
+@import "footer/footer";
+@import "content/index__style";
+@import "content/congratulation";
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  color: $colorText;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  max-width: 1120px;
+  margin: auto;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main {
+  width: 100%;
+  flex: 1 0 auto;
+}
+
+.btn {
+  background-color: $backgroundButton;
+  padding: 20px;
+  font-size: 18px;
+  color: $colorButton;
+  outline: none;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.none {
+  display: none;
+}
+
