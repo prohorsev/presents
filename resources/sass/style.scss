@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 @import "header/header";
 @import "footer/footer";
 @import "content/index__style";
@@ -8,6 +9,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Teko', sans-serif;
+}
+
+#app {
+  height: 100%;
 }
 
 body {
@@ -26,6 +37,10 @@ ul {
 .container {
   max-width: 1120px;
   margin: auto;
+}
+
+.ws {
+  width: 100%;
 }
 
 .wrapper {
@@ -48,6 +63,7 @@ ul {
   border-radius: 30px;
   border: none;
   cursor: pointer;
+  //display: block;
 }
 
 .none {

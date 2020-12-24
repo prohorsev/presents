@@ -4,17 +4,36 @@
 @auth
     <div class="congratulation">
         <div class="container">
-            <h1>Команда друзей-поздравителей</h1><br><br><br>
-            <h3>Организатор <a href="#">{{ $organisator->name }}</a></h3>
-            <h3>Поздравляем {{ $room->birthday_person }}, день рождения {{ $room->birthday_date }},
-                бюджет на подарок {{ $room->birthday_sum }} руб.</h3><br><br><br>
-            Для приглашения друзей отправьте им ссылку: http://presents.local/rooms/{{ $room->id }}/invite <br><br><br>
-            Список участников: <br>
-            @forelse($friends as $friend)
-                {{ $friend->name }}<br>
-            @empty
-                Пока никто не вступил в команду
-            @endforelse
+            <h1>Команда друзей-поздравителей</h1>
+            <div class="congratulation__container">
+                <div class="congratulation__left">
+                    <div class="congratulation__room">
+                        <h3>Организатор: <br> <a href="#">{{ $organisator->name }}</a></h3>
+                        <p>Поздравляем: <br>{{ $room->birthday_person }}</p>
+                        <p>День рождения: <br>{{ $room->birthday_date }}</p>
+                        <p>Бюджет подарка: <br>{{ $room->birthday_sum }}руб.</p>
+                        <p>Для приглашения друзей отправьте им ссылку: <br>
+                            <strong>http://presents.local/rooms/{{ $room->id }}/invite</strong>
+                        </p>
+
+                        <p>Список участников:</p>
+                        <ul>
+                            @forelse($friends as $friend)
+                                <li>{{ $friend->name }}</li>
+                            @empty
+                                <li>Пока никто не вступил в команду</li>
+                            @endforelse
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="congratulation__right">
+                    <div class="congratulation__slider">
+                        <slider-component></slider-component>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endauth
