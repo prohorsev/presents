@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+// window.Hooper = require('hooper');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -22,12 +24,16 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('congratulation-forms-component', require('./components/CongratulationFormsComponent').default);
 Vue.component('congratulation-user-component', require('./components/CongratulationUserComponent').default);
+Vue.component('slider-component', require('./components/SliderComponent').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 
 const app = new Vue({
     el: '#app',

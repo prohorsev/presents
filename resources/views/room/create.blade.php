@@ -12,23 +12,8 @@
                         <form action="{{ route('room.store') }}" method="post" class="congratulation__form">
                             @csrf
                             <div class="congratulation__user">
-{{--                                <input type="text" placeholder="Ваше имя" name="name">--}}
-{{--                                @if($errors->has('name'))--}}
-{{--                                    <div class="congratulation__validation" role="alert">--}}
-{{--                                        @foreach($errors->get('name') as $err)--}}
-{{--                                            <p>{{ $err }}</p>--}}
-{{--                                        @endforeach--}}
-{{--                                    </div>--}}
-{{--                                @endif--}}
-{{--                                <input type="email" placeholder="Ваша почта" name="email">--}}
-{{--                                @if($errors->has('email'))--}}
-{{--                                    <div class="congratulation__validation" role="alert">--}}
-{{--                                        @foreach($errors->get('email') as $err)--}}
-{{--                                            <p>{{ $err }}</p>--}}
-{{--                                        @endforeach--}}
-{{--                                    </div>--}}
-{{--                                @endif--}}
-                                <input type="text" placeholder="Кого будем поздравля" name="birthday_person">
+                                <label for="birthday_person">Кого поздравляем?</label>
+                                <input type="text" placeholder="Кого будем поздравлять?" name="birthday_person" id="birthday_person">
                                 @if($errors->has('birthday_person'))
                                     <div class="congratulation__validation" role="alert">
                                         @foreach($errors->get('birthday_person') as $err)
@@ -36,7 +21,8 @@
                                         @endforeach
                                     </div>
                                 @endif
-                                <input type="date" placeholder="Когда поздравить" name="birthday_date">
+                                <label for="birthday_date">Дата поздравления</label>
+                                <input type="date" placeholder="Когда поздравить?" name="birthday_date" id="birthday_date">
                                 @if($errors->has('birthday_date'))
                                     <div class="congratulation__validation" role="alert">
                                         @foreach($errors->get('birthday_date') as $err)
@@ -44,7 +30,8 @@
                                         @endforeach
                                     </div>
                                 @endif
-                                <input type="number" placeholder="Бюджет подарка" name="birthday_sum">
+                                <label for="birthday_sum">Бюджет подарка</label>
+                                <input type="number" placeholder="Бюджет подарка" name="birthday_sum" id="birthday_sum">
                                 @if($errors->has('birthday_sum'))
                                     <div class="congratulation__validation" role="alert">
                                         @foreach($errors->get('birthday_sum') as $err)
@@ -58,10 +45,18 @@
                     </div>
                 </div>
                 <div class="congratulation__right">
-                    какие нибудь слайды
+                    <div class="congratulation__slider">
+                        <slider-component></slider-component>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 @endsection
+{{--<script>--}}
+{{--  import SliderComponent from "../../js/components/SliderComponent";--}}
+{{--  export default {--}}
+{{--    components: {SliderComponent}--}}
+{{--  }--}}
+{{--</script>--}}
