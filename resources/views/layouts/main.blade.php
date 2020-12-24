@@ -18,7 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/flex.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/text.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/spaces.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -67,7 +69,7 @@
                                 }
 
                             @endphp
-                            <li class="menu__li"><a href="#">Каталог подарков</a></li>
+                            <li class="menu__li"><a href="{{ route('catalog') }}">Каталог подарков</a></li>
                             <li class="menu__li"><a href="{{ route('room.create') }}">Организовать поздравление</a></li>
                             @if($roomId)
                                 <li class="menu__li"><a

@@ -1,0 +1,49 @@
+.d-{
+  &flex {
+    display: flex;
+  }
+  &iflex {
+    display: inline-flex;
+  }
+  &block {
+    display: block;
+  }
+  &none {
+    display: none;
+  }
+}
+
+.flex {
+  &w { flex-wrap: wrap; }
+  &col { flex-direction: column; }
+}
+
+.ai {
+  &c {
+    align-items: center;
+  }
+  &fs {
+    align-items: flex-start;
+  }
+  &fe {
+    align-items: flex-end;
+  }
+}
+.jc {
+  &c {
+    justify-content: center;
+  }
+  &fs {
+    justify-content: flex-start;
+  }
+  &fe {
+    justify-content: flex-end;
+  }
+  &sb {
+    justify-content: space-between;
+  }
+  &sa {
+    justify-content: space-around;
+  }
+}
+
