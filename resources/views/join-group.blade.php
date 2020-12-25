@@ -4,15 +4,15 @@
     <div class="congratulation">
         <div class="container">
 
-            <personal-account />
+            <join-group />
 
         </div>
     </div>
 @endsection
 <script>
-    import PersonalAccount from "../js/components/PersonalAccount"
+    import JoinGroup from "../js/components/JoinGroup"
 
     export default {
-        components: { PersonalAccount }
+        components: { JoinGroup }
     }
 </script>

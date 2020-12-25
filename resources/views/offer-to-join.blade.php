@@ -4,15 +4,15 @@
     <div class="congratulation">
         <div class="container">
 
-            <personal-account />
+            <offer-to-join />
 
         </div>
     </div>
 @endsection
 <script>
-    import PersonalAccount from "../js/components/PersonalAccount"
+    import OfferToJoin from "../js/components/OfferToJoin"
 
     export default {
-        components: { PersonalAccount }
+        components: { OfferToJoin }
     }
 </script>

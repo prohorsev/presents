@@ -38,3 +38,5 @@ Route::get('login/vk/callback', 'LoginVKController@handleProviderCallback');
 
 Route::get('/catalog', 'CatalogController@index')->name('catalog');
 Route::get('/person-account', 'PersonAccountController@index')->name('person-account');
+Route::get('/offer-to-join', 'OfferToJoinController@index')->name('offer-to-join');
+Route::get('/join-group', 'JoinGroupController@index')->name('join-group');
