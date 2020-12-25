@@ -1,3 +1,92 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;
+
+0,700;1,400&display=swap);@charset "UTF-8";
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  line-height: 1;
+  font-size: 10px;
+  text-align: left;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 700;
+}
+
+/*--------------------*/
+
 .header {
   width: 100%;
 }
@@ -12,7 +101,7 @@
 .logo {
   display: flex;
   align-items: center;
-  color: #1C1B1B;
+  color: #1B1B1B;
   transition: 0.5s;
 }
 
@@ -45,7 +134,7 @@
 
 .menu__li a {
   font-size: 20px;
-  color: #1C1B1B;
+  color: #1B1B1B;
   white-space: nowrap;
 }
 
@@ -108,23 +197,21 @@
 
 .index h1 {
   font-size: 40px;
-  margin-bottom: 20px;
 }
 
 .index h2 {
   font-size: 28px;
-  margin-bottom: 15px;
 }
 
 .index p {
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: 16px;
 }
 
 .index p span {
+  font-size: 18px;
   font-weight: bold;
   display: inherit;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
 }
 
 .index__login {
@@ -158,6 +245,10 @@
 
 .congratulation__left {
   width: 33%;
+}
+
+.congratulation__right {
+  width: 55%;
 }
 
 .congratulation h1 {
@@ -267,15 +358,66 @@
   color: red;
 }
 
+.congratulation__slide {
+  background-size: 100% !important;
+  width: 100%;
+  height: 100%;
+}
+
+.congratulation__slider {
+  margin-top: 30px;
+}
+
+.congratulation__room {
+  margin-top: 30px;
+}
+
+.congratulation__room h3 {
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.congratulation__room p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.congratulation__room ul {
+  margin-top: 10px;
+}
+
+.congratulation__room ul li {
+  padding: 3px 0;
+}
+
+.congratulation__room-btn {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.congratulation__room-btn:hover {
+  transform: scale(1.1);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  font-family: "Teko", sans-serif;
+}
+
+#app {
+  height: 100%;
+}
+
 body {
   background-color: #ffffff;
-  color: #1C1B1B;
+  color: #1B1B1B;
 }
 
 a {
@@ -289,6 +431,10 @@ ul {
 .container {
   max-width: 1120px;
   margin: auto;
+}
+
+.ws {
+  width: 100%;
 }
 
 .wrapper {

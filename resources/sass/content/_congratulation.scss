@@ -10,6 +10,9 @@
   &__left {
     width: 33%;
   }
+  &__right {
+    width: 55%;
+  }
   & h1 {
     text-align: center;
   }
@@ -97,4 +100,37 @@
       color: red;
     }
   }
+  &__slide {
+    background-size: 100%!important;
+    width: 100%;
+    height: 100%;
+  }
+  &__slider {
+    margin-top: 30px;
+  }
+  &__room {
+    margin-top: 30px;
+    & h3 {
+      margin-bottom: 10px;
+      font-size: 26px;
+    }
+    & p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    & ul {
+      margin-top: 10px;
+    }
+    & ul li {
+      padding: 3px 0;
+    }
+    &-btn {
+      display: inline-block;
+      margin-top: 15px;
+    }
+    &-btn:hover {
+      transform: scale(1.1);
+    }
+  }
+
 }

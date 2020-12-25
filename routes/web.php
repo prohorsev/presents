@@ -19,7 +19,7 @@ Auth::routes();
 Route::group([
     'namespace' => 'Room',
 ], function() {
-    Route::resource('room', 'RoomController');
+    Route::resource('room', 'RoomController');// если у ресуоса будут неиспользуемые роуты, то нужно не забыть их закрыть, к примру destroy, врядли будем использовать
     Route::get('/rooms/{room}/invite', 'InviteController@invite')->name('invite');
     Route::get('/rooms/{room}/join', 'JoinController@index')->name('join');
 });
@@ -35,3 +35,6 @@ Route::get('/friends', 'FriendsController@index')->name('friends');
 
 Route::get('login/vk', 'LoginVKController@redirectToProvider')->name('loginVK');
 Route::get('login/vk/callback', 'LoginVKController@handleProviderCallback');
+
+Route::get('/catalog', 'CatalogController@index')->name('catalog');
+Route::get('/person-account', 'PersonAccountController@index')->name('person-account');

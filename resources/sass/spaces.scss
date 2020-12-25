@@ -1,0 +1,72 @@
+// Margin
+.m {
+  &minus1 { margin: -1rem; }
+  &minus2 { margin: -1.5rem; }
+  &auto { margin: auto; }
+  @for $i from 1 through 30 {
+    &#{1 * $i} { margin: 0.1rem * $i; }
+  }
+  
+  // Left
+  &lminus1 { margin-left: -1rem; }
+  &lminus2 { margin-left: -1.5rem; }
+  &lminus3 { margin-left: -2rem; }
+  
+  &lauto { margin-left: auto; }
+  @for $i from 1 through 30 {
+    &l#{1 * $i} { margin-left: 0.1rem * $i; }
+  }
+  
+  // Top
+  &tminus1 { margin-top: -1rem; }
+  &tminus2 { margin-top: -1.5rem; }
+  &tminus3 { margin-top: -2rem; }
+  
+  &tauto { margin-top: auto; }
+  @for $i from 1 through 30 {
+    &t#{1 * $i} { margin-top: 0.1rem * $i; }
+  }
+  
+  // Right
+  &rminus1 { margin-right: -1rem; }
+  &rminus2 { margin-right: -1.5rem; }
+  &rminus3 { margin-right: -2rem; }
+  
+  &rauto { margin-right: auto; }
+  @for $i from 1 through 30 {
+    &r#{1 * $i} { margin-right: 0.1rem * $i; }
+  }
+  
+  // Bottom
+  &bminus1 { margin-bottom: -1rem; }
+  &bminus2 { margin-bottom: -1.5rem; }
+  &bminus3 { margin-bottom: -2rem; }
+  
+  &bauto { margin-bottom: auto; }
+  @for $i from 1 through 30 {
+    &b#{1 * $i} { margin-bottom: 0.1rem * $i; }
+  }
+}
+
+// Padding
+.p {
+  @for $i from 1 through 30 {
+    &#{1 * $i} { padding: 0.1rem * $i; }
+  }
+  // Left
+  @for $i from 1 through 30 {
+    &l#{1 * $i} { padding-left: 0.1rem * $i; }
+  }
+  // Top
+  @for $i from 1 through 30 {
+    &t#{1 * $i} { padding-top: 0.1rem * $i; }
+  }
+  // Right
+  @for $i from 1 through 30 {
+    &r#{1 * $i} { padding-right: 0.1rem * $i; }
+  }
+  // Bottom
+  @for $i from 1 through 30 {
+    &b#{1 * $i} { padding-bottom: 0.1rem * $i; }
+  }
+}
