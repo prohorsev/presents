@@ -1,0 +1,32 @@
+@import "variables";
+
+.fs {
+  @for $i from 7 through 40 {
+    &#{1 * $i} { font-size: 0.1rem * $i; }
+  }
+}
+
+.t {
+  &def { color: $def; }
+  //&defh { color: $def-hover; }
+  //&defa { color: $def-active; }
+  //&white { color: #FFF; }
+  //&greyd { color: $grey-dark; }
+  //&black { color: $black; }
+}
+
+.ta {
+  &l{
+    text-align: left;
+  }
+  &c{
+    text-align: center;
+  }
+  &r{
+    text-align: right;
+  }
+}
+
+.lhr {
+    line-height: 120%;
+}

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'MyGift') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,7 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/flex.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/text.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/spaces.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -67,8 +69,11 @@
                                 }
 
                             @endphp
-                            <li class="menu__li"><a href="#">Каталог подарков</a></li>
+                            <li class="menu__li"><a href="{{ route('catalog') }}">Каталог подарков</a></li>
+
                             <li class="menu__li"><a href="{{ route('room.create') }}">Организовать поздравление</a></li>
+
+                            <li class="menu__li"><a href="{{ route('person-account') }}">Личный кабинет</a></li>
                             @if($roomId)
                                 <li class="menu__li"><a
                                             href="{{ route('room.show', ['room' => $roomId]) }}">Команда</a>
@@ -102,11 +107,11 @@
                                     </div>
                                 </a></li>
                         @else
-                            <li class="menu__li">
+{{--                            <li class="menu__li">
                                 <a class="" href="#">
                                     {{ Auth::user()->name }}
                                 </a>
-                            </li>
+                            </li>--}}
                             <li class="menu__li">
                                 <a class="" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
