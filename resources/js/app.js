@@ -6,6 +6,7 @@ Vue.component('congratulation-forms-component', require('./components/Congratula
 Vue.component('congratulation-user-component', require('./components/CongratulationUserComponent').default);
 Vue.component('slider-component', require('./components/SliderComponent').default);
 Vue.component('catalog-component', require('./components/CatalogComponent').default);
+Vue.component('personal-account', require('./components/PersonalAccount').default);
 
 
 const app = new Vue({

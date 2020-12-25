@@ -1,3 +1,5 @@
+@import "variables";
+
 .fs {
   @for $i from 7 through 40 {
     &#{1 * $i} { font-size: 0.1rem * $i; }
@@ -5,7 +7,7 @@
 }
 
 .t {
-  //&def { color: $def; }
+  &def { color: $def; }
   //&defh { color: $def-hover; }
   //&defa { color: $def-active; }
   //&white { color: #FFF; }
@@ -23,5 +25,8 @@
   &r{
     text-align: right;
   }
+}
 
+.lhr {
+    line-height: 120%;
 }

@@ -37,3 +37,4 @@ Route::get('login/vk', 'LoginVKController@redirectToProvider')->name('loginVK');
 Route::get('login/vk/callback', 'LoginVKController@handleProviderCallback');
 
 Route::get('/catalog', 'CatalogController@index')->name('catalog');
+Route::get('/person-account', 'PersonAccountController@index')->name('person-account');

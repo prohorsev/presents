@@ -101,7 +101,7 @@ h6 {
 .logo {
   display: flex;
   align-items: center;
-  color: #1C1B1B;
+  color: #1B1B1B;
   transition: 0.5s;
 }
 
@@ -134,7 +134,7 @@ h6 {
 
 .menu__li a {
   font-size: 20px;
-  color: #1C1B1B;
+  color: #1B1B1B;
   white-space: nowrap;
 }
 
@@ -417,7 +417,7 @@ body {
 
 body {
   background-color: #ffffff;
-  color: #1C1B1B;
+  color: #1B1B1B;
 }
 
 a {

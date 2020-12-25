@@ -2,13 +2,13 @@
     <div class="catalog container pt30">
         <h1 class="catalog__title fs36 mb30">Выбрать подарок</h1>
 
-        <form class="catalog__search search mb30 d-flex" role="search">
+<!--        <form class="catalog__search search mb30 d-flex" role="search">
             <label for="search" />
             <input type="text" id="search" name="search" class="fs18 tblack pt16 pb16 pl20" placeholder="Найти подарок">
             <button class="d-flex aic jcc">
-<!--                <svg>-->
-<!--                    <use xlink:href="../../icons/sprite.svg#search"></use>-->
-<!--                </svg>-->
+&lt;!&ndash;                <svg>&ndash;&gt;
+&lt;!&ndash;                    <use xlink:href="../../icons/sprite.svg#search"></use>&ndash;&gt;
+&lt;!&ndash;                </svg>&ndash;&gt;
             </button>
         </form>
 
@@ -27,7 +27,7 @@
                 </ul>
 
             </div>
-        </div>
+        </div>-->
 
         <div class="catalog__gift-item gift-item d-flex flexw jcfs">
             <div
