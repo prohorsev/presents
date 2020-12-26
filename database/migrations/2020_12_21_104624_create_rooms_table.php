@@ -15,12 +15,11 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('org_user_id');
+            $table->string('name');
             $table->date('birthday_date');
             $table->integer('birthday_sum');
             $table->string('birthday_person');
             $table->timestamps();
-            $table->foreign('org_user_id')->references('id')->on('users')->onDelete('CASCADE');
         });
     }
 

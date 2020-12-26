@@ -15,7 +15,11 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        $user = \Auth::user();
+        $rooms = $user->rooms;
+        return view('room.list', [
+            'rooms' => $rooms
+        ]);
     }
 
     /**
@@ -37,12 +41,16 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
-        $data['org_user_id'] = \Auth::id();
         $room = new Room();
 
         $result = $room->fill($data)->save();
 
         if ($result) {
+            \DB::table('room_user')->insert([
+               'room_id' => $room->id,
+               'user_id' => \Auth::id(),
+               'is_admin' => 1
+            ]);
             return redirect()->route('room.show', ['room' => $room]);
         }
     }
@@ -59,16 +67,13 @@ class RoomController extends Controller
         if (empty($room)) {
             return redirect()->route('home');
         }
-        $organisator = \DB::table('rooms')
-            ->join('users', 'users.id', '=', 'rooms.org_user_id')
-            ->select('name')
-            ->where('rooms.id', '=', $id)
-            ->first();
-        $friends = \DB::table('room_user')
+        $organisator = \DB::table('room_user')
             ->join('users', 'users.id', '=', 'room_user.user_id')
             ->select('name')
-            ->where('room_id', '=', $id)
-            ->get();
+            ->where('room_user.room_id', '=', $id)
+            ->where('is_admin', '=', 1)
+            ->first();
+        $friends = $room->users;
         return view('room.show', [
             'room' => $room,
             'friends' => $friends,
@@ -84,29 +89,36 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        $room = Room::query()->find($id);
+        return view('room.edit', [
+            'room' => $room
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @param Room $room
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Room $room)
     {
-        //
+        $data = $request->except(['_token', '_method']);
+        $room->fill($data)->save();
+        return redirect()->route('room.show', $room);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param Room $room
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Room $room)
     {
-        //
+        \DB::table('room_user')->where('room_id', '=', $room->id)->delete();
+        $room->delete();
+        return redirect()->route('home');
     }
 }
