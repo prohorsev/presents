@@ -9,10 +9,10 @@
         </div>
     </div>
 @endsection
-<script>
-    import JoinGroup from "../js/components/JoinGroup"
+{{--<script>--}}
+{{--    import JoinGroup from "../js/components/JoinGroup"--}}
 
-    export default {
-        components: { JoinGroup }
-    }
-</script>
+{{--    export default {--}}
+{{--        components: { JoinGroup }--}}
+{{--    }--}}
+{{--</script>--}}

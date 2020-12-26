@@ -9,9 +9,9 @@
         </div>
     </div>
 @endsection
-<script>
-    import CatalogComponent from "../js/components/CatalogComponent";
-    export default {
-        components: { CatalogComponent }
-    }
-</script>
+{{--<script>--}}
+{{--    import CatalogComponent from "../js/components/CatalogComponent";--}}
+{{--    export default {--}}
+{{--        components: { CatalogComponent }--}}
+{{--    }--}}
+{{--</script>--}}

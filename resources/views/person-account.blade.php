@@ -9,10 +9,10 @@
         </div>
     </div>
 @endsection
-<script>
-    import PersonalAccount from "../js/components/PersonalAccount"
+{{--<script>--}}
+{{--    import PersonalAccount from "../js/components/PersonalAccount"--}}
 
-    export default {
-        components: { PersonalAccount }
-    }
-</script>
+{{--    export default {--}}
+{{--        components: { PersonalAccount }--}}
+{{--    }--}}
+{{--</script>--}}
