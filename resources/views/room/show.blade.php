@@ -38,12 +38,10 @@
                             @endif
 
                         </div>
-
+                        
                     </div>
                     <div class="congratulation__right">
-                        <div class="congratulation__slider">
-                            <slider-component></slider-component>
-                        </div>
+                       <chat-component></chat-component>
                     </div>
                 </div>
             </div>
