@@ -17,6 +17,7 @@ class CreateRoomUserTable extends Migration
             $table->id();
             $table->unsignedBigInteger('room_id');
             $table->unsignedBigInteger('user_id');
+            $table->tinyInteger('is_admin')->default(0);
             $table->timestamps();
             $table->foreign('room_id')->references('id')->on('rooms');
             $table->foreign('user_id')->references('id')->on('users');
