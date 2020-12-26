@@ -12,10 +12,11 @@ class InviteController extends Controller
     {
         $room = Room::query()->find($id);
         if ($room) {
-            $userOrg = \DB::table('rooms')
-                ->join('users', 'users.id', '=', 'rooms.org_user_id')
+            $userOrg = \DB::table('room_user')
+                ->join('users', 'users.id', '=', 'room_user.user_id')
                 ->select('users.name')
-                ->where('rooms.id', '=', $id)
+                ->where('room_user.room_id', '=', $id)
+                ->where('room_user.is_admin', '=', 1)
                 ->first();
             session(['invite' => url()->current()]);
             return view('room.invite', [
