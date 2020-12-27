@@ -38,10 +38,11 @@
                             @endif
 
                         </div>
-                        
+
                     </div>
                     <div class="congratulation__right">
-                       <chat-component></chat-component>
+{{--                        user_name нужно как то передать, пока заглушка--}}
+                       <chat-component :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}" :user_name="1111"></chat-component>
                     </div>
                 </div>
             </div>
