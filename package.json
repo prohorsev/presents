@@ -28,6 +28,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "hooper": "^0.3.4"
+        "hooper": "^0.3.4",
+        "laravel-echo": "^1.10.0",
+        "pusher-js": "^7.0.2"
     }
 }

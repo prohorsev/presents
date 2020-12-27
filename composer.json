@@ -15,6 +15,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
+        "pusher/pusher-php-server": "^4.1",
         "socialiteproviders/vkontakte": "^4.2"
     },
     "require-dev": {

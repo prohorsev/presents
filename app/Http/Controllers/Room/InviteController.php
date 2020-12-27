@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Room;
 
 use App\Http\Controllers\Controller;
-use App\Room;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class InviteController extends Controller
