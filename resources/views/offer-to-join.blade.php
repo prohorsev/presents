@@ -9,10 +9,11 @@
         </div>
     </div>
 @endsection
-<script>
-    import OfferToJoin from "../js/components/OfferToJoin"
 
-    export default {
-        components: { OfferToJoin }
-    }
-</script>
+{{--<script>--}}
+{{--  import OfferToJoin from "../js/components/OfferToJoin"--}}
+
+{{--  export default {--}}
+{{--    components: { OfferToJoin }--}}
+{{--  }--}}
+{{--</script>--}}

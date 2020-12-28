@@ -9,6 +9,7 @@ Vue.component('catalog-component', require('./components/CatalogComponent').defa
 Vue.component('personal-account', require('./components/PersonalAccount').default);
 Vue.component('offer-to-join', require('./components/OfferToJoin').default);
 Vue.component('join-group', require('./components/JoinGroup').default);
+Vue.component('chat-component', require('./components/ChatComponent').default);
 
 
 const app = new Vue({
