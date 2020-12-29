@@ -10,7 +10,7 @@
                         @forelse($rooms as $room)
                             <li><div class="team-item" style="display: flex;">
                                     <a href="{{ route('room.show', $room) }}">{{ $room->name }}</a>
-                                    @if(DB::table('room_user')->where('room_id', '=', $room->id)->where('user_id', '=', Auth::id())->select('is_admin')->first()->is_admin)
+                                    @if(Auth::id() == $room->admin_id)
                                         <div class="controls" style="display: flex; margin-left: 20px;">
                                             <a href="{{ route('room.edit', $room) }}">[edit]</a>
                                             <form action="{{ route('room.destroy', $room) }}" method="post" style="margin-left: 20px;">

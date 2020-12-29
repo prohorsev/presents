@@ -4,10 +4,21 @@ namespace App\Http\Controllers\Room;
 
 use App\Http\Controllers\Controller;
 use App\Models\Room;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('check_room_admin')->except([
+            'index',
+            'create',
+            'store',
+            'show',
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,6 +52,7 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
+        $data['admin_id'] = \Auth::id();
         $room = new Room();
 
         $result = $room->fill($data)->save();
@@ -49,7 +61,6 @@ class RoomController extends Controller
             \DB::table('room_user')->insert([
                'room_id' => $room->id,
                'user_id' => \Auth::id(),
-               'is_admin' => 1
             ]);
             return redirect()->route('room.show', ['room' => $room]);
         }
@@ -67,12 +78,7 @@ class RoomController extends Controller
         if (empty($room)) {
             return redirect()->route('home');
         }
-        $organisator = \DB::table('room_user')
-            ->join('users', 'users.id', '=', 'room_user.user_id')
-            ->select('name')
-            ->where('room_user.room_id', '=', $id)
-            ->where('is_admin', '=', 1)
-            ->first();
+        $organisator = User::query()->find($room->admin_id);
         $friends = $room->users;
         return view('room.show', [
             'room' => $room,

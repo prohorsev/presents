@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Room;
 
 use App\Http\Controllers\Controller;
 use App\Models\Room;
-use Illuminate\Http\Request;
 
 class JoinController extends Controller
 {
