@@ -1,0 +1,39 @@
+@import "variables";
+
+@mixin btn( $width, $height, $background: $def, $textColor: $colorWhite) {
+    background-color: $background;
+    height: $height;
+    width: $width;
+    color: $colorWhite;
+    font-size: 18px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+    &:hover{
+        background-color: darken($background, 5%);
+        box-shadow: 5px 10px 20px rgba(53, 110, 173, 0.2);
+    }
+    &:active{
+        box-shadow: none;
+    }
+}
+
+
+@mixin input( $height ) {
+    font-size: inherit;
+    color: #555555;
+    display: block;
+    width: 100%;
+    height: $height;
+    background: transparent;
+    padding: 0 5px;
+    border: 1px solid #6AA4FB;
+    border-radius: 10px;
+}
+
+

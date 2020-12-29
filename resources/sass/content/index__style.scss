@@ -1,57 +1,25 @@
 @import "../variables";
+@import "../mixins";
+
 .index {
   margin-bottom: 30px;
-  position: relative;
+    margin-top: 120px;
   width: 100%;
   &__container {
-    padding: 20px 2%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   &__left {
-    width: 46%;
+    width: 40%;
     margin: 0;
   }
   &__right {
     width: 50%;
     margin: 0;
+
   }
-  &__svg svg {
-    width: 100%;
-  }
-  & h1 {
-    font-size: 40px;
-  }
-  & h2 {
-    font-size: 28px;
-  }
-  & p {
-    font-size: 16px;
-  }
-  & p span {
-      font-size: 18px;
-      font-weight: bold;
-      display: inherit;
-      margin-bottom: 5px;
-  }
-  &__login {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  &__login a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #6AA4FB;
-    font-size: 26px;
-    padding: 20px;
-    border-radius: 30px;
-    color: $colorButton;
-    transition: 0.5s;
-    text-align: center;
-  }
-  &__login a:hover {
-    transform: scale(1.1);
+  &__btn {
+      @include btn(220px, 56px)
   }
 }
