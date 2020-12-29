@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Events\MessageSend;
-use Illuminate\Support\Facades\Response;
 use App\Models\ChatMessage;
 
 class ChatController extends Controller
@@ -12,10 +11,12 @@ class ChatController extends Controller
     public function index(Request $request)
     {
         $data = $request->all();
+//        $room_id = $request->room_id;
+//        $user_id = $request->user_id;
         $this->addMessageInDb($data);
         $message = $request->input('message', '');
         if (strlen($message)) {
-            event(new MessageSend($message));
+            event(new MessageSend($data));
         }
     }
 

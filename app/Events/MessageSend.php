@@ -15,9 +15,13 @@ class MessageSend implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $message;
-    public function __construct($message)
+    public $room_id;
+    public $user_id;
+    public function __construct(array $data)
     {
-        $this->message = $message;
+        $this->message = $data['message'];
+        $this->room_id = $data['room_id'];
+        $this->user_id = $data['user_id'];
     }
     public function broadcastOn()
     {

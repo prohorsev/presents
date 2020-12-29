@@ -28,7 +28,6 @@
       return {
         userMessage: '',
         messages: [],
-        test: [],
       }
     },
 
