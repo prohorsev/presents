@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('/message', 'ChatController@index');
-Route::get('/message/{id}', 'ChatController@all');
+
+Route::group([
+    'namespace' => 'Room',
+], function () {
+    Route::post('/message', 'ChatController@index');
+    Route::get('/message/{id}', 'ChatController@all');
+});
+

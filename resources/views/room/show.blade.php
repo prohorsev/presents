@@ -9,7 +9,7 @@
                     <div class="congratulation__left">
                         <div class="congratulation__room">
                             <h3>Организатор: <br> <a href="#">{{ $organisator->name }}</a></h3>
-                            @if(DB::table('room_user')->where('room_id', '=', $room->id)->where('user_id', '=', Auth::id())->select('is_admin')->first()->is_admin)
+                            @if(Auth::id() == $room->admin_id)
                                 <h4><a href="{{ route('room.edit', $room) }}">[edit]</a></h4>
                                 <form action="{{ route('room.destroy', $room) }}" method="post">
                                     @csrf
@@ -33,7 +33,7 @@
                                 @endforelse
                             </ul>
 
-                            @if(!DB::table('room_user')->where('room_id', '=', $room->id)->where('user_id', '=', Auth::id())->select('is_admin')->first()->is_admin)
+                            @if(Auth::id() != $room->admin_id)
                                 <a href="{{ route('exit', $room) }}">Выйти</a>
                             @endif
 
@@ -41,8 +41,7 @@
 
                     </div>
                     <div class="congratulation__right">
-{{--                        user_name нужно как то передать, пока заглушка--}}
-                       <chat-component :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}" :user_name="1111"></chat-component>
+                       <chat-component :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}" :user_name="{{ Auth::getName() }}"></chat-component>
                     </div>
                 </div>
             </div>
