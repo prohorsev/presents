@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Room;
 
 use App\Http\Controllers\Controller;
 use App\Models\Room;
-use Illuminate\Http\Request;
+use App\Models\User;
 
 class InviteController extends Controller
 {
@@ -12,12 +12,7 @@ class InviteController extends Controller
     {
         $room = Room::query()->find($id);
         if ($room) {
-            $userOrg = \DB::table('room_user')
-                ->join('users', 'users.id', '=', 'room_user.user_id')
-                ->select('users.name')
-                ->where('room_user.room_id', '=', $id)
-                ->where('room_user.is_admin', '=', 1)
-                ->first();
+            $userOrg = User::query()->find($room->admin_id);
             session(['invite' => url()->current()]);
             return view('room.invite', [
                 'room' => $room,

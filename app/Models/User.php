@@ -1,11 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Room;
+use phpDocumentor\Reflection\Types\Collection;
 
 class User extends Authenticatable
 {
@@ -38,6 +39,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get users rooms.
+     *
+     * @return BelongsToMany
+     */
     public function rooms()
     {
         return $this->belongsToMany(Room::class);

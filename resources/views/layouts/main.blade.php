@@ -57,18 +57,6 @@
                                 </div>
                             </a></li>
                         @auth
-{{--                            @php--}}
-{{--                                $room = DB::table('room_user')->where('user_id', '=', Auth::id())->first();--}}
-{{--                                $roomOrg = \App\Room::query()->where('org_user_id', '=', Auth::user()->id)->first();--}}
-{{--                                if ($room) {--}}
-{{--                                    $roomId = $room->room_id;--}}
-{{--                                } elseif ($roomOrg) {--}}
-{{--                                    $roomId = $roomOrg->id;--}}
-{{--                                } else {--}}
-{{--                                    $roomId = null;--}}
-{{--                                }--}}
-
-{{--                            @endphp--}}
                             <li class="menu__li"><a href="{{ route('catalog') }}">Каталог подарков</a></li>
                             <li class="menu__li"><a href="{{ route('room.create') }}">Организовать поздравление</a></li>
                             <li class="menu__li"><a href="{{ route('person-account') }}">Личный кабинет</a></li>

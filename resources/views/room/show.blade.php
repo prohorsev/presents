@@ -41,11 +41,9 @@
 
                     </div>
                     <div class="congratulation__right">
-{{--                        user_name нужно как то передать, пока заглушка--}}
-                        {{ Auth::getName() }}
-                       <chat-component :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}" :user_name="konstantin"></chat-component>
+
+                        <chat-component :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}" :user_name="'{{ Auth::user()->name }}'"></chat-component>                    </div>
                     </div>
-                </div>
             </div>
         </div>
     @endauth
