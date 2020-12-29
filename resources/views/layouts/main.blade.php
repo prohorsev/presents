@@ -13,8 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -110,9 +109,11 @@
                 </nav>
             </div>
         </header>
+
         <main class="main">
             @yield('content')
         </main>
+
         <footer class="footer">
             <div class="container footer__container">
                 <p>Copyright © 2020 MyGift</p>

@@ -12,7 +12,7 @@
 .logo {
   display: flex;
   align-items: center;
-  color: $colorText;
+  color: #757575;
   transition: 0.5s;
   & p {
     font-size: 30px;
@@ -20,7 +20,7 @@
 }
 
 .logo:hover {
-  transform: scale(1.1);
+    color: $def;
 }
 
 .menu {
@@ -38,12 +38,12 @@
     margin-right: 0;
   }
   &__li a {
-    font-size: 20px;
-    color: $colorText;
+    font-size: 16px;
+    color: #757575;
     white-space: nowrap;
   }
   &__li a:hover {
-    color: $colorTextHover;
+    color: $def;
   }
   &__login {
     display: flex;
@@ -52,7 +52,7 @@
     transition: 0.5s;
   }
   &__login:hover {
-    transform: scale(1.1);
+      color: $def;
   }
   &__login p {
     margin-right: 10px;

@@ -6,13 +6,19 @@
   }
 }
 
+.f {
+    &w {
+        font-weight: 700;
+    }
+}
+
 .t {
   &def { color: $def; }
   //&defh { color: $def-hover; }
   //&defa { color: $def-active; }
-  //&white { color: #FFF; }
+  &white { color: #FFF; }
   //&greyd { color: $grey-dark; }
-  //&black { color: $black; }
+  &black { color: $colorText; }
 }
 
 .ta {
