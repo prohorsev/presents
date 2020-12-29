@@ -28,7 +28,6 @@
       return {
         userMessage: '',
         messages: [],
-        test: [],
       }
     },
 
@@ -54,7 +53,8 @@
     },
 
     created() {
-      Echo.channel('presents')
+      console.log('presents-' + this.room_id);
+      Echo.private('presents-' + this.room_id)
         .listen('MessageSend', (e) => {
           this.addMessage(e.message);
         });
