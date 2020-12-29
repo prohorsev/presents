@@ -25,6 +25,6 @@ class MessageSend implements ShouldBroadcast
     }
     public function broadcastOn()
     {
-        return new Channel('presents');
+        return new PrivateChannel('presents-'.$this->room_id);
     }
 }

@@ -12,8 +12,6 @@ class ChatController extends Controller
     public function index(Request $request)
     {
         $data = $request->all();
-//        $room_id = $request->room_id;
-//        $user_id = $request->user_id;
         $this->addMessageInDb($data);
         $message = $request->input('message', '');
         if (strlen($message)) {
