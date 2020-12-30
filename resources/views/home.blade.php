@@ -24,7 +24,7 @@
             </div>
             <div class="index__right">
                 <div class="index__svg">
-                    <svg width="700" height="315" viewBox="0 0 700 315" fill="none" xmlns="http://www.w3.org/2000/svg"          xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="700" height="315" viewBox="0 0 700 315" fill="none" xmlns="http://www.w3.org/2000/svg"                                  xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="700" height="314.644" fill="url(#pattern0)"/>
                         <rect width="700" height="314.644" fill="url(#paint0_linear)"/>
                         <defs>
