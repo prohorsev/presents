@@ -1,6 +1,13 @@
 <template>
                 <div class="congratulation__user">
-                    <input v-bind:id="'congratulation-input-' + formUser.id" type="text" placeholder="Добавить участника" @click="setIsSearch" @keyup="sortArray" v-model="searchValue">
+                    <input
+                        v-bind:id="'congratulation-input-' + formUser.id"
+                        type="text"
+                        placeholder="Добавить участника"
+                        @click="setIsSearch"
+                        @keyup="sortArray"
+                        v-model="searchValue"
+                    >
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0)">
                             <path d="M20.0187 39C30.5027 39 39.0017 30.4934 39.0017 20C39.0017 9.50659 30.5027 1 20.0187 1C9.53465 1 1.03564 9.50659 1.03564 20C1.03564 30.4934 9.53465 39 20.0187 39Z" fill="white" stroke="#757575" stroke-width="2"/>
@@ -14,7 +21,11 @@
                         </defs>
                     </svg>
                     <div class="congratulation__search" v-show="isSearch">
-                        <p v-for="friend in friendsList" :key="friend.id" @click="addFriend(friend)">{{ friend.name }}</p>
+                        <p
+                            v-for="friend in friendsList"
+                            :key="friend.id"
+                            @click="addFriend(friend)"
+                        >{{ friend.name }}</p>
                     </div>
                 </div>
 </template>

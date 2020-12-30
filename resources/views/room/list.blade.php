@@ -6,6 +6,7 @@
             <h1>Мои команды</h1>
             <div class="congratulation__container">
                 <div class="congratulation__left">
+
                     <ul>
                         @forelse($rooms as $room)
                             <li><div class="team-item" style="display: flex;">
