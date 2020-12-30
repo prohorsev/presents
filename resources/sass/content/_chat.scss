@@ -65,6 +65,11 @@
     width: 6px;
     border-radius: 10px;
   }
+  &__messages::-webkit-scrollbar-thumb {
+    background-color: #e41d1d;
+    border-radius: 9em;
+    box-shadow: inset 1px 1px 10px #f3faf7;
+  }
   &__message {
     margin-top: 5px;
     padding-right: 4px;

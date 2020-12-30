@@ -2,11 +2,12 @@
     <div class="chat">
         <h3 class="chat__title">Чат комнаты</h3>
         <div class="chat__container">
-            <div class="chat__messages">
+            <div class="chat__messages" id="chat-messages">
                 <div class="chat__message" v-for="message in messages">
                     <p><span>{{ message.created_at }}  </span><span>{{ message.name }}</span><br>
                         {{ message.message }}</p>
                 </div>
+                <div style="height: 1px" ></div>
             </div>
             <div class="chat__form">
                 <textarea class="chat__textarea" name="user-message" cols="26" rows="3" placeholder="Ваше сообщение" v-model="userMessage" @keyup.enter="sendMessage()"></textarea>
@@ -14,7 +15,6 @@
                     <button class="chat__btn" @click="sendMessage()">Отправить</button>
                     <button class="chat__btn" @click="clearMessage()">Очистить</button>
                 </div>
-
             </div>
         </div>
     </div>
@@ -36,13 +36,51 @@
         this.userMessage = '';
       },
       sendMessage() {
-        axios.post('/api/message', {message: this.userMessage, room_id: this.room_id, user_id: this.user_id});
-        this.userMessage = '';
+        // axios.post('/api/message', {message: this.userMessage, room_id: this.room_id, user_id: this.user_id});
+        (
+          async () => {
+            const response = await fetch('/api/message/', {
+              method: 'post',
+              headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                message: this.userMessage,
+                room_id: this.room_id,
+                user_id: this.user_id
+              })
+            });
+            const answer = await response.json();
+            if (answer.answer != 'ok') {
+              console.log(answer.answer);
+              alert('Не удалось отправить сообщение');
+            }
 
+          })();
+        this.userMessage = '';
       },
       addMessage(message) {
         let date= new Date();
-        let timestamp = date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
+
+        let month = date.getMonth() + 1;
+
+        let day = date.getDate();
+        if (day < 10) {
+          day = '0' + day;
+        }
+
+        let hours = date.getHours();
+        if (hours < 10) {
+          hours = '0' + hours;
+        }
+
+        let minutes = date.getMinutes();
+        if (minutes < 10) {
+          minutes = '0' + minutes;
+        }
+
+        let timestamp = day + ' ' + month + ' ' + date.getFullYear() + ' ' + hours + ':' + minutes;
         let mes = {
           message: message,
           name: this.user_name,
@@ -50,15 +88,18 @@
         };
         this.messages.push(mes);
       },
+
+      scrollChat() {
+        let el = document.getElementById('chat-messages');
+        el.scrollTop = el.scrollHeight;
+      }
     },
 
     created() {
-      console.log('presents-' + this.room_id);
       Echo.private('presents-' + this.room_id)
         .listen('MessageSend', (e) => {
           this.addMessage(e.message);
         });
-
 
       (
         async () => {
@@ -66,15 +107,29 @@
             method: 'get',
           });
           const answer = await response.json();
-          let messages = answer.messages;
-          messages.forEach(mes => {
-            let time = mes.created_at;
-            mes.created_at = time.substring(0,16);
-            this.messages.push(mes);
-          });
-
+          if (answer.messages) {
+            let messages = answer.messages;
+            messages.forEach(mes => {
+              let timestamp = mes.created_at;
+              timestamp = new Date(timestamp);
+              let month = (timestamp.getMonth() + 1).toString();
+              timestamp = timestamp.toString();
+              timestamp = timestamp.substring(8,21);
+              let result = timestamp.substr(0, 2) + ' ' + month + timestamp.substring(2);
+              mes.created_at = result;
+              this.messages.push(mes);
+            });
+          } else {
+            console.log(answer.answer);
+            alert('Не удалось загрузить сообщения чата. Попробуйте еще раз');
+          }
         })();
     },
+
+    updated() {
+      this.scrollChat();
+    }
+
   }
 </script>
 
