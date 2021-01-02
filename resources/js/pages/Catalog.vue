@@ -1,5 +1,5 @@
 <template>
-    <div class="catalog container pt30">
+    <div class="catalog container pt50 pb50">
         <h1 class="catalog__title fs36 mb30">Выбрать подарок</h1>
 
 <!--        <form class="catalog__search search mb30 d-flex" role="search">
@@ -29,21 +29,20 @@
             </div>
         </div>-->
 
-        <div class="catalog__gift-item gift-item d-flex flexw jcfs">
+        <div class="catalog__gift-item gift-item">
             <div
-                class="gift-item__card d-flex flexcol aic"
+                class="gift-item__card"
                 v-for="(item, i) in products"
                 :key="i"
             >
                 <div class="gift-item__image mb15">
-                    <img src="require('../images/no-photo.png')" alt="item.image">
-<!--                    <img :src=" require('../images/' + item.image ) " alt="item.image">-->
+                    <img src="http://presents/images/catalog/no-photo.png" alt="item.image">
                 </div>
                 <div class="gift-item__text tal pl25 pr25 ">
                     <h4 class="gift-item__title mb15">{{ item.title }}</h4>
                     <p class="gift-item__desc mb15">{{ item.description }}</p>
                     <div class="gift-item__link">
-<!--                        <a href="#" class="d-flex aic pr10">Подробнее<svg class="ml15"><use xlink:href="../../icons/sprite.svg#arrow-link"></use></svg></a>-->
+                        <a href="#" class="d-flex aic pr10">Подробнее<svg class="ml15"><use xlink:href="http://presents/icons/sprite.svg#arrow-link"></use></svg></a>
                     </div>
                 </div>
             </div>
@@ -196,23 +195,36 @@ export default {
 }
 
 .gift-item {
-    margin: 0 -15px;
-    &__card {
-        max-width: 300px;
-        height: 400px;
-        background: #FFFFFF;
-        box-shadow: 5px 20px 50px rgba(16, 112, 177, 0.2);
-        border-radius: 10px;
-        margin: 15px
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: 576px) {
+        flex-direction: row;
+        &__card + &__card {
+            margin-left: 30px;
+        }
     }
+
+    &__card + &__card {
+        margin-top: 30px;
+    }
+    &__card {
+        max-width: 340px;
+        flex: 0 0 340px;
+        height: 100%;
+        background: #FFFFFF;
+        box-shadow: 0 5px 20px rgba(16, 112, 177, 0.2);
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+
     &__image {
         height: 220px;
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    &__text {
-
     }
     &__title {
         font-size: 20px;
