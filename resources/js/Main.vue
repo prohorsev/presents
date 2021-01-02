@@ -1,20 +1,17 @@
 <template>
     <div>
-        Navbar
-        <router-link to="/">home</router-link>
-        <router-link to="/catalog">catalog</router-link>
-        <router-link to="/example">example</router-link>
+        <Header />
 
         <router-view></router-view>
     </div>
 </template>
 
 <script>
+import Header from "./components/Header";
 export default {
-    name: "Main.vue"
+    components: {
+        Header
+    }
 }
 </script>
 
-<style scoped>
-
-</style>
