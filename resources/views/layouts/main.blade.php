@@ -64,7 +64,7 @@
                     </ul>
                     <ul class="menu__list">
                         @guest
-                            <li class="menu__li"><a href="{{ route('loginVK') }}">
+                            <li class="menu__li"><a href="{{ route('login') }}">
                                     <div class="menu__login">
                                         <p>войти</p>
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -84,7 +84,6 @@
                                                 </clipPath>
                                             </defs>
                                         </svg>
-
                                     </div>
                                 </a></li>
                         @else

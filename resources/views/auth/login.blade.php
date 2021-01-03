@@ -75,6 +75,11 @@
                     </div>
                 </div>
             </form>
+            <a href="{{ route('loginVK') }}">
+                <div class="menu__login">
+                    <img src="https://img.icons8.com/color/48/000000/vk-circled.png"/>
+                </div>
+            </a>
         </div>
     </div>
 @endsection
