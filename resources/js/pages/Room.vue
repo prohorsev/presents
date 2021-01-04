@@ -1,28 +1,55 @@
 <template>
     <div class="congratulation">
         <div class="container">
-            <h1>Поздравить близкого вам человека проще чем вы думаете</h1>
             <div class="congratulation__container">
                 <div class="congratulation__left">
                     <div class="congratulation__forms">
-                        <h3>Заполните форму для поздравления</h3>
+                        <h1>Создайте группу для поздравления</h1>
                         <form action="" method="post" class="congratulation__form">
                             <div class="congratulation__user">
 
-                                <label for="name">Название команды</label>
-                                <input type="text" placeholder="Название группы" name="name" id="name">
+                                <label for="title">Название группы</label>
+                                <input
+                                    id="title"
+                                    type="text"
+                                    placeholder="Название группы"
+                                    v-model.trim="presentTitle"
+                                >
 
-                                <label for="birthday_person">Кого поздравляем?</label>
-                                <input type="text" placeholder="Кого будем поздравлять?" name="birthday_person" id="birthday_person">
+                                <label for="person">Кого поздравляем?</label>
+                                <input
+                                    type="text"
+                                    placeholder="Имя"
+                                    name="person"
+                                    id="person"
+                                    v-model.trim="presentPerson"
+                                >
 
-                                <label for="birthday_date">Дата поздравления</label>
-                                <input type="date" placeholder="Когда поздравить?" name="birthday_date" id="birthday_date">
+                                <label for="date">Дата поздравления</label>
+                                <input
+                                    type="date"
+                                    placeholder="Когда поздравить?"
+                                    name="date"
+                                    id="date"
+                                    v-model.trim="presentDate"
+                                >
 
-                                <label for="birthday_sum">Бюджет подарка</label>
-                                <input type="number" placeholder="10000" name="birthday_sum" id="birthday_sum">
+
+                                <label for="amount">Бюджет подарка</label>
+                                <input
+                                    type="number"
+                                    placeholder="10000"
+                                    name="amount"
+                                    id="amount"
+                                    v-model.trim="presentAmount"
+                                >
 
                             </div>
-                            <button class="btn congratulation__btn" type="submit">Создать поздравление</button>
+                            <button
+                                class="btn"
+                                type="submit"
+                                @click="$router.push({ name: 'films' })"
+                            >Создать поздравление</button>
                         </form>
                     </div>
                 </div>
@@ -33,6 +60,12 @@
 
 <script>
 export default {
-    name: "Room"
+    name: "Room",
+    data: () => ({
+        presentTitle: '',
+        presentPerson: '',
+        presentDate: '',
+        presentAmount: '',
+    })
 }
 </script>

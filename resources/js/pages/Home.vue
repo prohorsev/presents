@@ -9,7 +9,7 @@
                         <li>Найдите идеи для личных подарков</li>
                         <li>Задавайте вопросы о списке желаний анонимно</li>
                     </ul>
-                    <a href="#" class="home__btn">Создать группу</a>
+                    <router-link to="/room" class="home__btn">Создать группу</router-link>
                 </div>
                 <div class="home__img">
                     <img src="http://presents/images/bg-home.svg" alt="">

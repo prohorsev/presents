@@ -29,24 +29,26 @@
             </div>
         </div>-->
 
-        <div class="catalog__gift-item gift-item">
-            <div
-                class="gift-item__card"
-                v-for="(item, i) in products"
-                :key="i"
-            >
-                <div class="gift-item__image mb15">
-                    <img src="http://presents/images/catalog/no-photo.png" alt="item.image">
-                </div>
-                <div class="gift-item__text tal pl25 pr25 ">
-                    <h4 class="gift-item__title mb15">{{ item.title }}</h4>
-                    <p class="gift-item__desc mb15">{{ item.description }}</p>
+        <div class="gift-item__center">
+            <div class="catalog__gift-item gift-item">
+
+                <div class="gift-item__card"
+                     v-for="(item, i) in products"
+                     :key="i">
+                    <div class="gift-item__image mb15">
+                        <img src="http://presents/images/catalog/no-photo.png" alt="item.image">
+                    </div>
+                    <div class="gift-item__text">
+                        <h4 class="gift-item__title mb15">{{ item.title }}</h4>
+                        <p class="gift-item__desc mb15">{{ item.description }}</p>
+
+                    </div>
                     <div class="gift-item__link">
-                        <a href="#" class="d-flex aic pr10">Подробнее<svg class="ml15"><use xlink:href="http://presents/icons/sprite.svg#arrow-link"></use></svg></a>
+                        <a href="#" class="d-flex aic">Подробнее<svg class="ml15"><use xlink:href="http://presents/icons/sprite.svg#arrow-link"></use></svg></a>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
 </template>
@@ -94,7 +96,7 @@ export default {
                 id: 2,
                 image: 'no-photo.png',
                 title: 'Название подарка 2',
-                description: 'Краткое описание. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                description: 'Краткое описание',
                 category: 'toys',
                 link: '#'
             },
@@ -196,35 +198,42 @@ export default {
 
 .gift-item {
     display: flex;
+    margin: 0 -20px;
+    max-width: 300px;
     flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    @media (min-width: 576px) {
-        flex-direction: row;
-        &__card + &__card {
-            margin-left: 30px;
+    @media (min-width: 768px) {
+        max-width: 600px;
+    }
+    @media (min-width: 992px) {
+        max-width: 960px;
+    }
+    &__center {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__card {
+        background: #FFFFFF;
+        border-radius: 10px;
+        padding: 25px;
+        width: 260px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 20px;
+        &:hover {
+            box-shadow: 0 5px 20px rgba(16, 112, 177, 0.2);
+            cursor: pointer;
         }
     }
-
-    &__card + &__card {
-        margin-top: 30px;
-    }
-    &__card {
-        max-width: 340px;
-        flex: 0 0 340px;
-        height: 100%;
-        background: #FFFFFF;
-        box-shadow: 0 5px 20px rgba(16, 112, 177, 0.2);
-        border-radius: 10px;
-        padding: 20px;
-    }
-
-
     &__image {
-        height: 220px;
+        width: 220px;
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    &__text {
+        flex-grow: 1;
     }
     &__title {
         font-size: 20px;
