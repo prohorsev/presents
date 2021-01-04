@@ -3,9 +3,10 @@
 @section('content')
     <div class="congratulation">
         <div class="container">
-            <h1>Мои команды</h1>
+            <h1>Мои Группы</h1>
             <div class="congratulation__container">
                 <div class="congratulation__left">
+
                     <ul>
                         @forelse($rooms as $room)
                             <li><div class="team-item" style="display: flex;">
@@ -23,7 +24,7 @@
                                 </div>
                             </li>
                         @empty
-                            Пока вы не состоите ни в одной команде
+                            Вы пока не состоите ни в одной группе
                         @endforelse
                     </ul>
 
