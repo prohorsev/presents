@@ -5,7 +5,8 @@
                 <div class="congratulation__left">
                     <div class="congratulation__forms">
                         <h1>Создайте группу для поздравления</h1>
-                        <form action="" method="post" class="congratulation__form">
+
+                        <form @submit.prevent="submitHandler">
                             <div class="congratulation__user">
 
                                 <label for="title">Название группы</label>
@@ -13,7 +14,7 @@
                                     id="title"
                                     type="text"
                                     placeholder="Название группы"
-                                    v-model.trim="presentTitle"
+                                    v-model.trim="roomTitle"
                                 >
 
                                 <label for="person">Кого поздравляем?</label>
@@ -22,7 +23,7 @@
                                     placeholder="Имя"
                                     name="person"
                                     id="person"
-                                    v-model.trim="presentPerson"
+                                    v-model.trim="roomPerson"
                                 >
 
                                 <label for="date">Дата поздравления</label>
@@ -31,7 +32,7 @@
                                     placeholder="Когда поздравить?"
                                     name="date"
                                     id="date"
-                                    v-model.trim="presentDate"
+                                    v-model.trim="roomDate"
                                 >
 
 
@@ -41,14 +42,13 @@
                                     placeholder="10000"
                                     name="amount"
                                     id="amount"
-                                    v-model.trim="presentAmount"
+                                    v-model.number="roomAmount"
                                 >
 
                             </div>
                             <button
-                                class="btn"
+                                class="btn w300 mt30"
                                 type="submit"
-                                @click="$router.push({ name: 'films' })"
                             >Создать поздравление</button>
                         </form>
                     </div>
@@ -62,10 +62,24 @@
 export default {
     name: "Room",
     data: () => ({
-        presentTitle: '',
-        presentPerson: '',
-        presentDate: '',
-        presentAmount: '',
-    })
+        roomTitle: '',
+        roomPerson: '',
+        roomDate: '',
+        roomAmount: '',
+    }),
+    mounted() {
+
+    },
+    methods: {
+        submitHandler() {
+            const groups = {
+                roomTitle: this.roomTitle,
+                roomPerson: this.roomPerson,
+                roomDate: this.roomDate,
+                roomAmount: this.roomAmount,
+                id: Date.now(),
+            }
+        }
+    },
 }
 </script>
