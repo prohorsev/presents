@@ -19,7 +19,7 @@
                         <router-link to="/profile">Личный кабинет</router-link>
                     </li>
                     <li class="menu__li">
-                        <router-link to="/room">Мои группы</router-link>
+                        <router-link to="/room/list">Мои группы</router-link>
                     </li>
                 </ul>
             </nav>
