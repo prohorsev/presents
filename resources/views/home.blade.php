@@ -14,7 +14,7 @@
                 <a href="{{ route('room.create') }}" class="home__btn">Создать группу</a>
             </div>
             <div class="home__img">
-                <img src="http://presents/images/bg-home.svg" alt="">
+                <img src="{{asset("storage/images/bg-home.svg")}}" alt="">
             </div>
         </div>
     </div>
