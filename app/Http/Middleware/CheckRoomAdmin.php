@@ -18,7 +18,11 @@ class CheckRoomAdmin
     public function handle($request, Closure $next)
     {
         $route = $request->route();
-        $room = Room::query()->find($route->parameters['room']);
+        if ($route->getActionMethod() == 'destroy') {
+            $room = $route->parameters['room'];
+        } else {
+            $room = Room::query()->find($route->parameters['room']);
+        }
         if (Auth::id() != $room->admin_id) {
             return response()->view('errors.403');
         }

@@ -47,7 +47,7 @@
                     </ul>
                 </nav>
                 @guest
-                    <a href="{{ route('loginVK') }}" class="menu__login d-flex aic">
+                    <a href="{{ route('login') }}" class="menu__login d-flex aic">
                         <span class="mr10 tgreyd fs16">Войти</span>
                         <img src="http://presents/images/user.svg" alt="">
                     </a>
