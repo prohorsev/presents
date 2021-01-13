@@ -16,7 +16,6 @@ class Room extends Model
 
     public static function rules(Room $room)
     {
-        $tableName = (new Room())->getTable();
         return [
             'name' => [
                 'required',
