@@ -13,7 +13,7 @@
                             @method('PUT')
                             <div class="congratulation__user">
                                 <label for="name">Название команды</label>
-                                <input type="text" placeholder="Название команды" name="name" id="name" value="{{ $room->name }}">
+                                <input type="text" placeholder="Название команды" name="name" id="name" value="{{ old('name') ?? $room->name }}">
                                 @if($errors->has('name'))
                                     <div class="congratulation__validation" role="alert">
                                         @foreach($errors->get('name') as $err)
@@ -23,7 +23,7 @@
                                 @endif
                                 <label for="birthday_person">Кого поздравляем?</label>
                                 <input type="text" placeholder="Кого будем поздравлять?" name="birthday_person"
-                                       id="birthday_person" value="{{ $room->birthday_person }}">
+                                       id="birthday_person" value="{{ old('birthday_person') ?? $room->birthday_person }}">
                                 @if($errors->has('birthday_person'))
                                     <div class="congratulation__validation" role="alert">
                                         @foreach($errors->get('birthday_person') as $err)
@@ -33,7 +33,7 @@
                                 @endif
                                 <label for="birthday_date">Дата поздравления</label>
                                 <input type="date" placeholder="Когда поздравить?" name="birthday_date"
-                                       id="birthday_date" value="{{ $room->birthday_date }}">
+                                       id="birthday_date" value="{{ old('birthday_date') ?? $room->birthday_date }}">
                                 @if($errors->has('birthday_date'))
                                     <div class="congratulation__validation" role="alert">
                                         @foreach($errors->get('birthday_date') as $err)
@@ -43,7 +43,7 @@
                                 @endif
                                 <label for="birthday_sum">Бюджет подарка</label>
                                 <input type="number" placeholder="Бюджет подарка" name="birthday_sum"
-                                       id="birthday_sum" value="{{ $room->birthday_sum }}">
+                                       id="birthday_sum" value="{{ old('birthday_sum') ?? $room->birthday_sum }}">
                                 @if($errors->has('birthday_sum'))
                                     <div class="congratulation__validation" role="alert">
                                         @foreach($errors->get('birthday_sum') as $err)

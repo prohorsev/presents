@@ -55,6 +55,8 @@ class RoomController extends Controller
         $data['admin_id'] = \Auth::id();
         $room = new Room();
 
+        $this->validate($request, Room::rules($room), Room::messages());
+
         $result = $room->fill($data)->save();
 
         if ($result) {
@@ -111,6 +113,7 @@ class RoomController extends Controller
     public function update(Request $request, Room $room)
     {
         $data = $request->except(['_token', '_method']);
+        $this->validate($request, Room::rules($room), Room::messages());
         $room->fill($data)->save();
         return redirect()->route('room.show', $room);
     }
