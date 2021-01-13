@@ -5,7 +5,7 @@
         <div class="auth__wrapper d-flex flexcol aic">
             <div class="d-flex aic mb30 mr5">
                 <svg width="50" height="50" class="d-block">
-                    <use xlink:href="http://presents/icons/main.svg#logo"></use>
+                    <use xlink:href="{{asset("storage/icons/main.svg#logo")}}"></use>
                 </svg>
                 <p class="fs30">MyGift</p>
             </div>
