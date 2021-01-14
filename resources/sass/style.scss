@@ -50,8 +50,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-.wfull {
-    width: 100%;
+.w {
+    &full {
+        width: 100%;
+    }
+    @for $i from 10 through 500 {
+        &#{1 * $i} {
+            width: 0.1rem * $i;
+        }
+    }
 }
 
 .wrapper {
@@ -69,8 +76,11 @@ h1, h2, h3, h4, h5, h6 {
     @include input(46px)
 }
 
-.btn {
+.btn220 {
     @include btn(220px, 46px);
+}
+.btn300 {
+    @include btn(300px, 46px);
 }
 
 .ic {

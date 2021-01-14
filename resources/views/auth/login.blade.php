@@ -5,7 +5,7 @@
         <div class="auth__wrapper d-flex flexcol aic">
             <div class="d-flex aic mb30 mr5">
                 <svg width="50" height="50" class="d-block">
-                    <use xlink:href="http://presents/icons/main.svg#logo"></use>
+                    <use xlink:href="{{asset("storage/icons/main.svg#logo")}}"></use>
                 </svg>
                 <p class="fs30">MyGift</p>
             </div>
@@ -77,7 +77,7 @@
             </form>
             <a href="{{ route('loginVK') }}">
                 <div class="menu__login">
-                    <img src="https://img.icons8.com/color/48/000000/vk-circled.png"/>
+                    <img src="{{asset("storage/images/vk-circled.png")}}"/>
                 </div>
             </a>
         </div>

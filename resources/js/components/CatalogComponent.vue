@@ -36,7 +36,7 @@
                 :key="i"
             >
                 <div class="gift-item__image mb15">
-                    <img src="require('../images/no-photo.png')" alt="item.image">
+                    <img src="/storage/images/catalog/no-photo.png" alt="item.image">
 <!--                    <img :src=" require('../images/' + item.image ) " alt="item.image">-->
                 </div>
                 <div class="gift-item__text tal pl25 pr25 ">

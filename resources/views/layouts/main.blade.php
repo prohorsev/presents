@@ -31,7 +31,7 @@
                 <div class="logo">
                     <a href="{{ route('home') }}" class="d-flex aic tgreyd fs16">
                         <svg class="ic50 mr10" viewBox="0 0 50 50">
-                            <use xlink:href="http://presents/icons/main.svg#logo"></use>
+                            <use xlink:href="{{asset("storage/icons/main.svg#logo")}}"></use>
                         </svg>
                         MyGIFT
                     </a>
@@ -49,7 +49,7 @@
                 @guest
                     <a href="{{ route('login') }}" class="menu__login d-flex aic">
                         <span class="mr10 tgreyd fs16">Войти</span>
-                        <img src="http://presents/images/user.svg" alt="">
+                        <img src="{{asset("storage/images/user.svg")}}" alt="">
                     </a>
                 @else
                     {{--                            <li class="menu__li">
@@ -61,7 +61,7 @@
                     <a class="" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('Выйти') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -79,7 +79,7 @@
 
         <footer class="footer">
             <div class="container footer__container">
-                <p>Copyright © 2020 MyGift</p>
+                <p>Copyright © 2021 MyGift</p>
             </div>
         </footer>
     </div>
