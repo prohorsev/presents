@@ -1,22 +1,9 @@
 @import "../variables";
-.header {
-  width: 100%;
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 2%;
-  }
-}
 
-.logo {
-  display: flex;
-  align-items: center;
-  color: #757575;
-  transition: 0.5s;
-  & p {
-    font-size: 30px;
-  }
+.header {
+    width: 100%;
+    height: 90px;
+    line-height: 90px;
 }
 
 .logo:hover {
@@ -24,37 +11,35 @@
 }
 
 .menu {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  &__list {
-    display: flex;
-    align-items: center;
-  }
-  &__li {
-    margin-right: 4%;
-  }
-  &__li:last-child {
-    margin-right: 0;
-  }
-  &__li a {
-    font-size: 16px;
-    color: #757575;
-    white-space: nowrap;
-  }
-  &__li a:hover {
-    color: $def;
-  }
-  &__login {
-    display: flex;
-    align-items: center;
-    color: #757575;
-    transition: 0.5s;
-  }
-  &__login:hover {
-      color: $def;
-  }
-  &__login p {
-    margin-right: 10px;
-  }
+    display: none;
+    @media (min-width: 768px) {
+        display: block;
+    }
+
+    &__li + &__li {
+        margin-left: 20px;
+    }
+
+    &__li a {
+        padding: 8px 10px;
+        font-size: 16px;
+        color: #757575;
+        white-space: nowrap;
+        transition: .3s;
+    }
+
+    &__li a:hover {
+        color: $def;
+    }
+
+    &__login {
+        background: transparent;
+        color: #757575;
+        transition: .3s;
+    }
+
+    &__login:hover {
+        color: $def;
+    }
+
 }

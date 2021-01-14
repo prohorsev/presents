@@ -18,7 +18,7 @@ class CheckRoomAdmin
     public function handle($request, Closure $next)
     {
         $route = $request->route();
-        if ($route->getActionMethod() == 'destroy') {
+        if ($route->getActionMethod() == 'destroy' || $route->getActionMethod() == 'update') {
             $room = $route->parameters['room'];
         } else {
             $room = Room::query()->find($route->parameters['room']);

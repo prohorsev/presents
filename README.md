@@ -16,6 +16,7 @@
 * php artisan migrate
 * php artisan db:seed (если ошибка composer dump-autoload)
 * npm run dev (каждый раз после выгрузки последней версии из репозитория)
+* php artisan storage:link
 ## Для работы нужно создать свое приложение ВК ##
 В .env прописать:
 * VKONTAKTE_CLIENT_ID=ID приложения
