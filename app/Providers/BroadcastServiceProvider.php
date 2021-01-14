@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Room;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\ServiceProvider;

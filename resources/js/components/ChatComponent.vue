@@ -36,7 +36,6 @@
         this.userMessage = '';
       },
       sendMessage() {
-        // axios.post('/api/message', {message: this.userMessage, room_id: this.room_id, user_id: this.user_id});
         (
           async () => {
             const response = await fetch('/api/message/', {
@@ -99,6 +98,7 @@
       Echo.private('presents-' + this.room_id)
         .listen('MessageSend', (e) => {
           this.addMessage(e.message);
+          // вот здесь e.user_id
         });
 
       (

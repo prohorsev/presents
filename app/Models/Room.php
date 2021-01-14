@@ -7,7 +7,7 @@ use Illuminate\Validation\Rule;
 
 class Room extends Model
 {
-    protected $fillable = ['name', 'birthday_date', 'birthday_sum', 'birthday_person', 'admin_id'];
+    protected $fillable = ['name', 'birthday_date', 'birthday_sum', 'birthday_person', 'admin_id', 'budget'];
 
     public function users()
     {
