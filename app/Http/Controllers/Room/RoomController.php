@@ -63,6 +63,8 @@ class RoomController extends Controller
                'user_id' => \Auth::id(),
             ]);
             return redirect()->route('room.show', ['room' => $room]);
+        } else {
+            dd('заглушка. Что-то пошло не так');
         }
     }
 
@@ -80,10 +82,14 @@ class RoomController extends Controller
         }
         $organisator = User::query()->find($room->admin_id);
         $friends = $room->users;
+        $user_sum = \DB::table('room_user')->select('sum')
+            ->where('room_user.room_id', '=', $id)
+            ->where('room_user.user_id', '=', \Auth::id())->get()->toArray();
         return view('room.show', [
             'room' => $room,
             'friends' => $friends,
             'organisator' => $organisator,
+            'user_sum' => $user_sum[0]->sum,
         ]);
     }
 

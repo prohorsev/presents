@@ -19,12 +19,15 @@
                             @endif
                             <p>Поздравляем: <br>{{ $room->birthday_person }}</p>
                             <p>День рождения: <br>{{ $room->birthday_date }}</p>
-                            <p>Бюджет подарка: <br>{{ $room->birthday_sum }}руб.</p>
+                            <budget-component :room_sum="{{ $room->birthday_sum }}" :budget="{{ $room->budget }}"
+                             :user_sum="{{ $user_sum }}" :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}"></budget-component>
                             <p>Для приглашения друзей отправьте им ссылку: <br>
                                 <strong>http://presents.local/rooms/{{ $room->id }}/invite</strong>
                             </p>
 
                             <p>Список участников:</p>
+                            <users-budget-component :friends="{{ $friends }}">
+                            </users-budget-component>
                             <ul>
                                 @forelse($friends as $friend)
                                     <li>{{ $friend->name }}</li>
@@ -41,7 +44,9 @@
 
                     </div>
                     <div class="congratulation__right">
-                        <chat-component :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}" :user_name="'{{ Auth::user()->name }}'"></chat-component>                    </div>
+                        <chat-component :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}" :user_name="'{{ Auth::user()->name }}'">
+                        </chat-component>
+                    </div>
                     </div>
             </div>
         </div>
