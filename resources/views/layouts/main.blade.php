@@ -61,7 +61,7 @@
                     <a class="" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('Выйти') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -79,7 +79,7 @@
 
         <footer class="footer">
             <div class="container footer__container">
-                <p>Copyright © 2020 MyGift</p>
+                <p>Copyright © 2021 MyGift</p>
             </div>
         </footer>
     </div>

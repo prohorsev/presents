@@ -3,32 +3,34 @@
 @section('content')
     <div class="congratulation">
         <div class="container">
-            <h1>Мои команды</h1>
+
             <div class="congratulation__container">
+
                 <div class="congratulation__left">
-                    <ul>
-                        @forelse($rooms as $room)
-                            <li><div class="team-item" style="display: flex;">
-                                    <a href="{{ route('room.show', $room) }}">{{ $room->name }}</a>
-                                    @if(Auth::id() == $room->admin_id)
-                                        <div class="controls" style="display: flex; margin-left: 20px;">
-                                            <a href="{{ route('room.edit', $room) }}">[edit]</a>
-                                            <form action="{{ route('room.destroy', $room) }}" method="post" style="margin-left: 20px;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <input type="submit" value="[delete]" style="cursor: pointer">
-                                            </form>
-                                        </div>
-                                    @endif
+                    @forelse($rooms as $room)
+                        <h1 class="fs30">Мои Группы</h1>
+
+                        <div class="d-flex aic mb20">
+                            <a href="{{ route('room.show', $room) }}"
+                               class="fs20 pt10 pb10 mr10 group__link">{{ $room->name }}</a>
+                            @if(Auth::id() == $room->admin_id)
+                                <div class="controls d-flex aic">
+                                    <a href="{{ route('room.edit', $room) }}" class="mr10" style="color: orange">изменить</a>
+                                    <form action="{{ route('room.destroy', $room) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" value="удалить" style="color: red; cursor: pointer">
+
+                                    </form>
                                 </div>
-                            </li>
-                        @empty
-                            Пока вы не состоите ни в одной команде
-                        @endforelse
-                    </ul>
-
-
+                            @endif
+                        </div>
+                    @empty
+                        <h2 class="fs30">Вы еще не состоите ни в одной группе</h2>
+                    @endforelse
+                    <a href="{{ route('room.create') }}" class="home__btn">Создать группу</a>
                 </div>
+
                 <div class="congratulation__right">
                     <div class="congratulation__slider">
                         <slider-component></slider-component>
