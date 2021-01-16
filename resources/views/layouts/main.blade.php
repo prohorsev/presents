@@ -40,8 +40,6 @@
                 <nav class="menu">
                     <ul class="d-flex aic">
                         @auth
-                            <li class="menu__li"><a href="{{ route('catalog') }}">Каталог подарков</a></li>
-                            <li class="menu__li"><a href="{{ route('person-account') }}">Личный кабинет</a></li>
                             <li class="menu__li"><a href="{{ route('room.index') }}">Мои группы</a></li>
                         @endauth
                     </ul>
