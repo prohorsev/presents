@@ -10,6 +10,8 @@ Vue.component('personal-account', require('./components/PersonalAccount').defaul
 Vue.component('offer-to-join', require('./components/OfferToJoin').default);
 Vue.component('join-group', require('./components/JoinGroup').default);
 Vue.component('chat-component', require('./components/ChatComponent').default);
+Vue.component('budget-component', require('./components/BudgetComponent').default);
+Vue.component('users-budget-component', require('./components/UsersBudgetComponent').default);
 
 
 const app = new Vue({

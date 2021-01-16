@@ -22,5 +22,6 @@ Route::group([
 ], function () {
     Route::post('/message', 'ChatController@index');
     Route::get('/message/{id}', 'ChatController@all');
+    Route::post('/budget', 'BudgetController@store');
 });
 
