@@ -7,8 +7,8 @@
             <div class="congratulation__container">
 
                 <div class="congratulation__left">
+                    <h1 class="fs30">Мои Группы</h1>
                     @forelse($rooms as $room)
-                        <h1 class="fs30">Мои Группы</h1>
 
                         <div class="d-flex aic mb20">
                             <a href="{{ route('room.show', $room) }}"
