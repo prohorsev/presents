@@ -33,17 +33,6 @@ Route::group([
     Route::get('login/vk/callback', 'LoginVKController@handleProviderCallback');
 });
 
-Route::group([
-    'namespace' => 'Catalog',
-], function () {
-    Route::get('/catalog', 'IndexController@index')->name('catalog');
-});
-
-Route::group([
-    'namespace' => 'Person',
-], function () {
-    Route::get('/person-account', 'IndexController@index')->name('person-account');
-});
 
 
 

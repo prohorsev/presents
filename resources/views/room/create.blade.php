@@ -14,11 +14,11 @@
                             <div class="congratulation__user">
                                 <div class="mb20">
                                     <label for="name">Название группы</label>
-                                    <input type="text" placeholder="Название" name="title" id="title"
-                                           value="{{ old('title') }}">
-                                    @if($errors->has('title'))
+                                    <input type="text" placeholder="Название" name="name" id="title"
+                                           value="{{ old('name') }}">
+                                    @if($errors->has('name'))
                                         <div class="congratulation__validation" role="alert">
-                                            @foreach($errors->get('title') as $err)
+                                            @foreach($errors->get('name') as $err)
                                                 <p>{{ $err }}</p>
                                             @endforeach
                                         </div>
