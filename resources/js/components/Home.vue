@@ -1,3 +1,4 @@
+<!--тоже под вопросом-->
 <template>
         <div class="index">
             <div class="container index__container">
