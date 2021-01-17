@@ -26,15 +26,8 @@
                             </p>
 
                             <p>Список участников:</p>
-                            <users-budget-component :friends="{{ $friends }}">
+                            <users-budget-component :friends="{{ $friends }}" ref="usersBudgetComponent">
                             </users-budget-component>
-                            <ul>
-                                @forelse($friends as $friend)
-                                    <li>{{ $friend->name }}</li>
-                                @empty
-                                    <li>Пока никто не вступил в команду</li>
-                                @endforelse
-                            </ul>
 
                             @if(Auth::id() != $room->admin_id)
                                 <a href="{{ route('exit', $room) }}">Выйти</a>

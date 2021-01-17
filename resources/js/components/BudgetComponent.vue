@@ -2,8 +2,8 @@
     <div>
         <p>Бюджет подарка: <br>{{ vue_budget }}/{{ room_sum }}руб.</p>
         <label for="user_sum"></label>
-        <input type="number" placeholder="Ваш сумма" name="user_sum" id="user_sum" v-model="now_user_sum">
-        <button @click="addSum">Внести</button>
+        <p>Ваша вклад:</p><input type="number" placeholder="Ваш сумма" name="user_sum" id="user_sum" v-model="now_user_sum">
+        <button @click="addSum">Ок</button>
     </div>
 
 </template>
@@ -43,6 +43,8 @@
               const answer = await response.json();
               if (answer.answer === 'ok') {
                 this.last_user_sum = this.now_user_sum;
+                console.log(this.$root);
+                this.$root.$refs.usersBudgetComponent.setUserSum(this.user_id, +this.now_user_sum);
                 alert('Ваша сумма успешно сохранена');
               } else {
                 console.log(answer.answer);
