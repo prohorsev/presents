@@ -3,11 +3,10 @@
 @section('content')
     <div class="congratulation">
         <div class="container">
-
+            <h1 class="fs20 ">Мои группы</h1>
             <div class="congratulation__container">
-
                 <div class="congratulation__left">
-                    <h1 class="fs30">Мои Группы</h1>
+                    <h3 class="fs20">Активные группы</h3>
                     @forelse($rooms as $room)
 
                         <div class="d-flex aic mb20">
@@ -32,9 +31,22 @@
                 </div>
 
                 <div class="congratulation__right">
-                    <div class="congratulation__slider">
-                        <slider-component></slider-component>
-                    </div>
+                    @if($pastRooms)
+                        <h3 class="fs20">Прошедшие поздравления</h3>
+                        @forelse($pastRooms as $room)
+
+                            <div class="d-flex aic mb20">
+                                <a href="{{ route('room.show', $room) }}"
+                                   class="fs20 pt10 pb10 mr10 group__link">{{ $room->name }}</a>
+                            </div>
+                        @empty
+
+                        @endforelse
+                    @else
+                        <div class="congratulation__slider">
+                            <slider-component></slider-component>
+                        </div>
+                    @endif
                 </div>
             </div>
 
