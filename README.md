@@ -22,3 +22,10 @@
 * VKONTAKTE_CLIENT_ID=ID приложения
 * VKONTAKTE_CLIENT_SECRET=Защищенный ключ 
 * VKONTAKTE_REDIRECT_URI=Доверенный redirect URI вида: http://ваш_домен/login/vk/callback
+## Настройка почты ##
+В .env прописать:
+* MAIL_MAILER=mailgun
+* MAILGUN_DOMAIN=домен
+* MAILGUN_SECRET=ключ
+В командной строке:
+* composer require guzzlehttp/guzzle
