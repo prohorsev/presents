@@ -61,7 +61,6 @@
         this.userMessage = '';
       },
       addMessage(message) {
-        // console.log(user_name);
         let date= new Date();
 
         let month = date.getMonth() + 1;
