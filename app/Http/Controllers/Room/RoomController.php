@@ -28,8 +28,16 @@ class RoomController extends Controller
     {
         $user = \Auth::user();
         $rooms = $user->rooms;
+        $pastRooms = [];
+        foreach ($rooms as $key => $room) {
+            if (strtotime($room->birthday_date) < strtotime(date('Y-m-d'))) {
+                $pastRooms[] = $room;
+                unset($rooms[$key]);
+            }
+        }
         return view('room.list', [
-            'rooms' => $rooms
+            'rooms' => $rooms,
+            'pastRooms' => $pastRooms,
         ]);
     }
 
@@ -82,6 +90,7 @@ class RoomController extends Controller
         if (empty($room)) {
             return redirect()->route('home');
         }
+        $isActive = strtotime($room->birthday_date) > strtotime(date('Y-m-d'));
         $organisator = User::query()->find($room->admin_id);
         $friends = $room->users;
         $user_sum = \DB::table('room_user')->select('sum')
@@ -92,6 +101,7 @@ class RoomController extends Controller
             'friends' => $friends,
             'organisator' => $organisator,
             'user_sum' => $user_sum[0]->sum,
+            'isActive' => $isActive,
         ]);
     }
 

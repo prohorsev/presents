@@ -1,17 +1,20 @@
 <template>
-    <div>
-        <p>Бюджет подарка: <br>{{ vue_budget }}/{{ room_sum }}руб.</p>
-        <label for="user_sum"></label>
-        <input type="number" placeholder="Ваш сумма" name="user_sum" id="user_sum" v-model="now_user_sum">
-        <button @click="addSum">Внести</button>
-    </div>
+  <div>
+    <p>Бюджет подарка: <br>{{ vue_budget }}/{{ room_sum }}руб.</p>
+    <label for="user_sum"></label>
+    <template v-if="room_is_active">
+      <input type="number" placeholder="Ваш сумма" name="user_sum" id="user_sum" v-model="now_user_sum">
+      <button @click="addSum">Внести</button>
+    </template>
+
+  </div>
 
 </template>
 
 <script>
   export default {
     name: "BudgetComponent",
-    props: ['room_sum', 'budget', 'user_sum', 'room_id', 'user_id'],
+    props: ['room_sum', 'budget', 'user_sum', 'room_id', 'user_id', 'room_is_active'],
     data: function () {
       return {
         now_user_sum: 0,
@@ -24,8 +27,8 @@
 
       addSum() {
 
-          this.vue_budget = this.vue_budget - +this.last_user_sum + +this.now_user_sum;
-          (
+        this.vue_budget = this.vue_budget - +this.last_user_sum + +this.now_user_sum;
+        (
             async () => {
               const response = await fetch('/api/budget/', {
                 method: 'post',

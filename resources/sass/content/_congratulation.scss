@@ -114,6 +114,10 @@
     & ul li {
       padding: 3px 0;
     }
+    & .admin-control {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
 }
