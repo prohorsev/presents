@@ -92,7 +92,11 @@ class RoomController extends Controller
         }
         $isActive = strtotime($room->birthday_date) > strtotime(date('Y-m-d'));
         $organisator = User::query()->find($room->admin_id);
-        $friends = $room->users;
+//        $friends = $room->users;
+        $friends = \DB::table('room_user')->where('room_id', '=', $id)
+            ->join('users', 'room_user.user_id', '=', 'users.id')
+            ->select('room_user.user_id', 'users.name', 'room_user.room_id', 'room_user.sum')
+            ->orderByDesc('sum')->get();
         $user_sum = \DB::table('room_user')->select('sum')
             ->where('room_user.room_id', '=', $id)
             ->where('room_user.user_id', '=', \Auth::id())->get()->toArray();

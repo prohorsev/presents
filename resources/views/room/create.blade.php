@@ -14,7 +14,8 @@
                             <div class="congratulation__user">
                                 <div class="mb20">
                                     <label for="name">Название группы</label>
-                                    <input type="text" placeholder="Название" name="name" id="title"
+
+                                    <input type="text" placeholder="Название" name="name" id="name"
                                            value="{{ old('name') }}">
                                     @if($errors->has('name'))
                                         <div class="congratulation__validation" role="alert">

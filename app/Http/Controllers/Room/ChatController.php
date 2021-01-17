@@ -13,9 +13,9 @@ class ChatController extends Controller
     {
         $data = $request->all();
         try {
-            $this->addMessageInDb($data);
             $message = $request->input('message', '');
             if (strlen($message)) {
+                $this->saveMessage($data);
                 event(new MessageSend($data));
             }
             return response()->json(['answer' => 'ok']);
@@ -38,7 +38,7 @@ class ChatController extends Controller
 
     }
 
-    private function addMessageInDb($message) {
+    private function saveMessage($message) {
         $chatMessage = new ChatMessage();
         $chatMessage->fill($message);
         $chatMessage->save();

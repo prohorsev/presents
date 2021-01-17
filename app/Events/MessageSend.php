@@ -17,11 +17,13 @@ class MessageSend implements ShouldBroadcast
     public $message;
     public $room_id;
     public $user_id;
+    public $user_name;
     public function __construct(array $data)
     {
         $this->message = $data['message'];
         $this->room_id = $data['room_id'];
         $this->user_id = $data['user_id'];
+        $this->user_name = $data['user_name'];
     }
     public function broadcastOn()
     {
