@@ -76,11 +76,21 @@ h1, h2, h3, h4, h5, h6 {
     @include input(46px)
 }
 
+.btnfull {
+    @include btn(100%, 46px);
+}
+
+.btnsmall {
+    @include btn(50px, 30px);
+}
+
 .btn220 {
-    @include btn(220px, 46px);
+    @include btn(100%, 46px);
+    max-width: 220px;
 }
 .btn300 {
-    @include btn(300px, 46px);
+    @include btn(100%, 46px);
+    max-width: 300px;
 }
 
 .ic {
@@ -105,4 +115,8 @@ h1, h2, h3, h4, h5, h6 {
     &def {
         fill: $def;
     }
+}
+
+hr {
+    border-bottom: 1px solid $def;
 }

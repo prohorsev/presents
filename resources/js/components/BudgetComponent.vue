@@ -1,9 +1,12 @@
 <template>
     <div>
-        <p>Бюджет подарка: <br>{{ vue_budget }}/{{ room_sum }}руб.</p>
-        <label for="user_sum"></label>
-        <p>Ваша вклад:</p><input type="number" placeholder="Ваш сумма" name="user_sum" id="user_sum" v-model="now_user_sum">
-        <button @click="addSum">Ок</button>
+        <p>{{ vue_budget }}/{{ room_sum }}руб.</p>
+
+        <div class="d-flex aic fs18">
+            <label for="user_sum" class="fs18">Ваш вклад:</label>
+            <input type="number" placeholder="0" name="user_sum" id="user_sum" class="fs18 ml10 mr10" v-model="now_user_sum">
+            <button @click="addSum" class="btnsmall fs16">ОК</button>
+        </div>
     </div>
 </template>
 
@@ -66,5 +69,8 @@
 </script>
 
 <style scoped>
-
+input {
+    border-bottom: 1px solid #757575;
+    width: 50px;
+}
 </style>
