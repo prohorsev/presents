@@ -7,14 +7,13 @@
             <div class="congratulation__container">
                 <div class="congratulation__left">
                     <div class="congratulation__forms">
-                        <h1 class="fs30">Создайте группу для поздравления</h1>
+                        <h1 class="fs24">Создайте группу для поздравления</h1>
 
                         <form action="{{ route('room.store') }}" method="post" class="congratulation__form">
                             @csrf
                             <div class="congratulation__user">
-                                <div class="mb20">
+                                <div class="mb20 d-flex flexcol">
                                     <label for="name">Название группы</label>
-
                                     <input type="text" placeholder="Название" name="name" id="name"
                                            value="{{ old('name') }}">
                                     @if($errors->has('name'))
@@ -26,7 +25,7 @@
                                     @endif
                                 </div>
 
-                                <div class="mb20">
+                                <div class="mb20 d-flex flexcol">
                                     <label for="birthday_person">Кого поздравляем?</label>
                                     <input type="text" placeholder="Имя" name="birthday_person" id="birthday_person"
                                            value="{{ old('birthday_person') }}">
@@ -39,7 +38,7 @@
                                     @endif
                                 </div>
 
-                                <div class="mb20">
+                                <div class="mb20 d-flex flexcol">
                                     <label for="birthday_date">Дата поздравления</label>
                                     <input type="date" placeholder="Дата" name="birthday_date" id="birthday_date"
                                            value="{{ old('birthday_date') }}">
@@ -52,7 +51,7 @@
                                     @endif
                                 </div>
 
-                                <div class="mb20">
+                                <div class="mb20 d-flex flexcol">
                                     <label for="birthday_sum">Бюджет подарка</label>
                                     <input type="number" placeholder="Бюджет подарка" name="birthday_sum"
                                            id="birthday_sum" value="{{ old('birthday_sum') }}">
