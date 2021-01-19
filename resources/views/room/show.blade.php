@@ -62,7 +62,12 @@
                                 <div>
                                     <p class="mb10">Для приглашения друзей отправьте им ссылку: </p>
 
-                                    <div class="input-group d-flex aic jcsb">
+                                    <clipboard-component
+                                        message="http://presents.local/rooms/{{ $room->id }}/invite"
+                                    >
+                                    </clipboard-component>
+
+<!--                                    <div class="input-group d-flex aic jcsb">
                                         <label>
                                             <input type="text" value="http://presents.local/rooms/{{ $room->id }}/invite">
                                         </label>
@@ -71,7 +76,7 @@
                                                 <use xlink:href="{{ asset("storage/icons/sprite.svg#copy") }}"></use>
                                             </svg>
                                         </button>
-                                    </div>
+                                    </div>-->
                                 </div>
 
                                 <hr class="mt20 mb20">
@@ -93,7 +98,8 @@
 
                     </div>
                     <div class="congratulation__right">
-                        <chat-component :room_id="{{ $room->id }}" :user_id="{{ Auth::id() }}"
+                        <chat-component :room_id="{{ $room->id }}"
+                                        :user_id="{{ Auth::id() }}"
                                         :user_name="'{{ Auth::user()->name }}'">
                         </chat-component>
                     </div>
