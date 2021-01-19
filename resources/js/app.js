@@ -1,4 +1,5 @@
 require('./bootstrap');
+import store from './store.js';
 window.Vue = require('vue');
 
 Vue.component('home', require('./components/Home.vue').default);
@@ -14,4 +15,6 @@ Vue.component('users-budget-component', require('./components/UsersBudgetCompone
 
 const app = new Vue({
     el: '#app',
+
+    store: new Vuex.Store(store)
 });

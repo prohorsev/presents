@@ -47,7 +47,8 @@
               body: JSON.stringify({
                 message: this.userMessage,
                 room_id: this.room_id,
-                user_id: this.user_id
+                user_id: this.user_id,
+                user_name: this.user_name,
               })
             });
             const answer = await response.json();
@@ -81,8 +82,8 @@
 
         let timestamp = day + ' ' + month + ' ' + date.getFullYear() + ' ' + hours + ':' + minutes;
         let mes = {
-          message: message,
-          name: this.user_name,
+          message: message.message,
+          name: message.user_name,
           created_at : timestamp
         };
         this.messages.push(mes);
@@ -96,9 +97,8 @@
 
     created() {
       Echo.private('presents-' + this.room_id)
-        .listen('MessageSend', (e) => {
-          this.addMessage(e.message);
-          // вот здесь e.user_id
+        .listen('MessageSend', (el) => {
+          this.addMessage(el);
         });
 
       (

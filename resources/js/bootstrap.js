@@ -39,3 +39,9 @@ window.Echo = new Echo({
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
     forceTLS: true
 });
+
+import Vue from 'vue';
+window.Vue = Vue;
+import Vuex from 'vuex'
+window.Vuex = Vuex;
+Vue.use(Vuex);

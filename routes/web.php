@@ -32,7 +32,3 @@ Route::group([
     Route::get('login/vk', 'LoginVKController@redirectToProvider')->name('loginVK');
     Route::get('login/vk/callback', 'LoginVKController@handleProviderCallback');
 });
-
-
-
-

@@ -4,51 +4,89 @@
     @auth
         <div class="congratulation">
             <div class="container">
-{{--                @dd($isActive)--}}
-                <h1 class="fs30">{{ $room->name }}</h1>
                 <div class="congratulation__container">
                     <div class="congratulation__left">
+                        <h1 class="fs24 mt30">{{ $room->name }}</h1>
                         <div class="congratulation__room">
-                            <h3>Организатор: <br> <a href="#">{{ $organisator->name }}</a></h3>
-                            @if(Auth::id() == $room->admin_id && $isActive)
-                                <div class="admin-control">
-                                    <h4><a href="{{ route('room.edit', $room) }}">[edit]</a></h4>
-                                    <form action="{{ route('room.destroy', $room) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input type="submit" value="[delete]" style="cursor: pointer">
-                                    </form>
+
+
+                            <p>{{ $isActive ? 'Поздравляем' : 'Поздравляли'}}: {{ $room->birthday_person }}</p>
+
+                            <hr class="mt20 mb20">
+
+                            <div>
+                                <div>
+                                    <p class="d-flex aic">
+                                        <svg class="ic20 mr10">
+                                            <use xlink:href="{{ asset("storage/icons/sprite.svg#user") }}"></use>
+                                        </svg>
+                                        Участники
+                                    </p>
+                                    <p>{{ $organisator->name }} (организатор)</p>
+                                    <users-budget-component :friends="{{ $friends }}" ref="usersBudgetComponent">
+                                    </users-budget-component>
                                 </div>
-                            @endif
-                            <p>{{ $isActive ? 'Поздравляем' : 'Поздравляли'}}: <br>{{ $room->birthday_person }}</p>
-                            <p>Дата поздравления: <br>{{ $room->birthday_date }}</p>
-                            <budget-component :room_sum="{{ $room->birthday_sum }}" :budget="{{ $room->budget }}"
-                                              :user_sum="{{ $user_sum }}" :room_id="{{ $room->id }}"
-                                              :user_id="{{ Auth::id() }}" {{ $isActive ? ":room_is_active='true'" : '' }}></budget-component>
+                                <hr class="mt20 mb20">
+                                <div>
+                                    <p class="d-flex aic">
+                                        <svg class="ic20 mr10">
+                                            <use
+                                                xlink:href="{{ asset("storage/icons/sprite.svg#calendar-clock") }}"></use>
+                                        </svg>
+                                        Дата поздравления
+                                    </p>
+                                    <p>{{ $room->birthday_date }}</p>
+                                </div>
+                                <hr class="mt20 mb20">
+                                <div>
+                                    <p class="d-flex aic">
+                                        <svg class="ic20 mr10">
+                                            <use xlink:href="{{ asset("storage/icons/sprite.svg#budget") }}"></use>
+                                        </svg>
+                                        Бюджет
+                                    </p>
+                                    <budget-component :room_sum="{{ $room->birthday_sum }}"
+                                                      :budget="{{ $room->budget }}"
+                                                      :user_sum="{{ $user_sum }}" :room_id="{{ $room->id }}"
+                                                      :user_id="{{ Auth::id() }}" {{ $isActive ? ":room_is_active='true'" : '' }}
+                                    />
+                                </div>
+
+
+                            </div>
+
                             @if($isActive)
-                                <p>Здесь вы можете выбрать и купить подарок</p>
-                                <div class="market-place">
-                                    <a target="_blank" href="https://www.ozon.ru"><img src="{{ asset('storage/images/ozon.png') }}" alt=""></a>
-                                    <a target="_blank" href="https://www.wildberries.ru"><img src="{{ asset('storage/images/wildberries.png') }}" alt=""></a>
+
+                                <hr class="mt20 mb20">
+
+                                <div>
+                                    <p class="mb10">Для приглашения друзей отправьте им ссылку: </p>
+
+                                    <div class="input-group d-flex aic jcsb">
+                                        <label>
+                                            <input type="text" value="http://presents.local/rooms/{{ $room->id }}/invite">
+                                        </label>
+                                        <button>
+                                            <svg class="ic20">
+                                                <use xlink:href="{{ asset("storage/icons/sprite.svg#copy") }}"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
-                                <p>Для приглашения друзей отправьте им ссылку: <br>
-                                    <strong>http://presents.local/rooms/{{ $room->id }}/invite</strong>
-                                </p>
-                            @endif
 
-                            <p>Список участников:</p>
-                            <users-budget-component :friends="{{ $friends }}">
-                            </users-budget-component>
-                            <ul>
-                                @forelse($friends as $friend)
-                                    <li>{{ $friend->name }}</li>
-                                @empty
-                                    <li>Пока никто не вступил в команду</li>
-                                @endforelse
-                            </ul>
+                                <hr class="mt20 mb20">
 
-                            @if(Auth::id() != $room->admin_id)
-                                <a href="{{ route('exit', $room) }}">Выйти</a>
+                                <div>
+                                    <p>Здесь вы можете выбрать и купить подарок</p>
+                                    <div class="market-place d-flex aic jcsb">
+                                        <a target="_blank" href="https://www.ozon.ru" class="link__site">
+                                            <img src="{{ asset('storage/images/ozon.png') }}" alt="">
+                                        </a>
+                                        <a target="_blank" href="https://www.wildberries.ru" class="link__site">
+                                            <img src="{{ asset('storage/images/wildberries.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
                             @endif
 
                         </div>

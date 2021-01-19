@@ -3,12 +3,11 @@
 @section('content')
     <div class="congratulation">
         <div class="container">
-            <h1 class="fs20 ">Мои группы</h1>
-            <div class="congratulation__container">
+            <div class="congratulation__container mt30">
                 <div class="congratulation__left">
-                    <h3 class="fs20">Активные группы</h3>
-                    @forelse($rooms as $room)
 
+                    @forelse($rooms as $room)
+                        <h3 class="fs24">Активные группы</h3>
                         <div class="d-flex aic mb20">
                             <a href="{{ route('room.show', $room) }}"
                                class="fs20 pt10 pb10 mr10 group__link">{{ $room->name }}</a>
@@ -25,9 +24,9 @@
                             @endif
                         </div>
                     @empty
-                        <h2 class="fs30">Вы еще не состоите ни в одной группе</h2>
+                        <h2 class="fs24">Вы еще не состоите ни в одной группе</h2>
                     @endforelse
-                    <a href="{{ route('room.create') }}" class="home__btn">Создать группу</a>
+                    <a href="{{ route('room.create') }}" class="congratulation__btn">Создать группу</a>
                 </div>
 
                 <div class="congratulation__right">

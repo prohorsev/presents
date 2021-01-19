@@ -10,7 +10,6 @@
             <div class="congratulation__slide" style="background: url('/storage/images/present-3.jpg') no-repeat center center"></div>
 
         </slide>
-<!--        <hooper-navigation slot="hooper-addons"></hooper-navigation>-->
     </hooper>
 
 </template>
@@ -25,9 +24,6 @@
       Slide,
       HooperNavigation
     },
-    created() {
-      console.log(Hooper);
-    }
 
   }
 </script>

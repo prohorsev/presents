@@ -1,14 +1,13 @@
 <template>
-  <div>
-    <p>Бюджет подарка: <br>{{ vue_budget }}/{{ room_sum }}руб.</p>
-    <label for="user_sum"></label>
-    <template v-if="room_is_active">
-      <input type="number" placeholder="Ваш сумма" name="user_sum" id="user_sum" v-model="now_user_sum">
-      <button @click="addSum">Внести</button>
-    </template>
+    <div>
+        <p>{{ vue_budget }}/{{ room_sum }}руб.</p>
 
-  </div>
-
+        <div class="d-flex aic fs18">
+            <label for="user_sum" class="fs18">Ваш вклад:</label>
+            <input type="number" placeholder="0" name="user_sum" id="user_sum" class="fs18 ml10 mr10" v-model="now_user_sum">
+            <button @click="addSum" class="btnsmall fs16">ОК</button>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -46,6 +45,8 @@
               const answer = await response.json();
               if (answer.answer === 'ok') {
                 this.last_user_sum = this.now_user_sum;
+                console.log(this.$root);
+                this.$root.$refs.usersBudgetComponent.setUserSum(this.user_id, +this.now_user_sum);
                 alert('Ваша сумма успешно сохранена');
               } else {
                 console.log(answer.answer);
@@ -68,5 +69,8 @@
 </script>
 
 <style scoped>
-
+input {
+    border-bottom: 1px solid #757575;
+    width: 50px;
+}
 </style>
