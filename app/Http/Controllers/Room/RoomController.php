@@ -18,6 +18,8 @@ class RoomController extends Controller
             'store',
             'show',
         ]);
+
+        $this->middleware('check_room_member')->only('show');
     }
     /**
      * Display a listing of the resource.
