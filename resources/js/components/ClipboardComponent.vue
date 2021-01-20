@@ -1,7 +1,7 @@
 <template>
     <div class="input-group d-flex aic jcsb">
         <label>
-            <input type="text" v-model="message">
+            <input type="text" :value="link">
         </label>
         <button type="button" @click="doCopy">
             <svg class="ic20">
@@ -14,6 +14,7 @@
 <script>
 export default {
     name: "ClipboardComponent",
+    props: ['link'],
     data: function () {
         return {
             message: '',
@@ -22,17 +23,24 @@ export default {
     methods: {
         doCopy: function () {
             this.$copyText(this.message).then(function (e) {
-                alert('Copied')
+                alert('Copied');
                 console.log(e)
             }, function (e) {
-                alert('Can not copy')
+                alert('Can not copy');
                 console.log(e)
             })
         }
+    },
+
+    created() {
+        this.message = this.link;
     }
+
 }
 </script>
 
 <style scoped>
-
+    input {
+        width: 270px;
+    }
 </style>

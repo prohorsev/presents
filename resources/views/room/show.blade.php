@@ -31,7 +31,7 @@
                                     <p class="d-flex aic">
                                         <svg class="ic20 mr10">
                                             <use
-                                                xlink:href="{{ asset("storage/icons/sprite.svg#calendar-clock") }}"></use>
+                                                    xlink:href="{{ asset("storage/icons/sprite.svg#calendar-clock") }}"></use>
                                         </svg>
                                         Дата поздравления
                                     </p>
@@ -63,20 +63,10 @@
                                     <p class="mb10">Для приглашения друзей отправьте им ссылку: </p>
 
                                     <clipboard-component
-                                        message="http://presents.local/rooms/{{ $room->id }}/invite"
+                                            :link="`http://presents.local/rooms/{{ $room->id }}/invite`"
                                     >
                                     </clipboard-component>
 
-<!--                                    <div class="input-group d-flex aic jcsb">
-                                        <label>
-                                            <input type="text" value="http://presents.local/rooms/{{ $room->id }}/invite">
-                                        </label>
-                                        <button>
-                                            <svg class="ic20">
-                                                <use xlink:href="{{ asset("storage/icons/sprite.svg#copy") }}"></use>
-                                            </svg>
-                                        </button>
-                                    </div>-->
                                 </div>
 
                                 <hr class="mt20 mb20">
