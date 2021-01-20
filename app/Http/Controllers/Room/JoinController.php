@@ -15,7 +15,7 @@ class JoinController extends Controller
                 'room_id' => $id,
                 'user_id' => \Auth::id()
             ]);
-            return redirect()->route('home');
+            return redirect()->route('room.show', $id);
         }
 
     }
