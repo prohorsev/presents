@@ -61,7 +61,6 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $data = $request->except('_token');
         $data['admin_id'] = \Auth::id();
         $room = new Room();
