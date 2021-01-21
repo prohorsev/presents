@@ -5,9 +5,9 @@
         <div class="container">
             <div class="congratulation__container mt30">
                 <div class="congratulation__left">
+                    <h3 class="fs24">Активные группы</h3>
 
                     @forelse($rooms as $room)
-                        <h3 class="fs24">Активные группы</h3>
                         <div class="d-flex aic mb20">
                             <a href="{{ route('room.show', $room) }}"
                                class="fs20 pt10 pb10 mr10 group__link">{{ $room->name }}</a>

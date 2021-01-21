@@ -27,6 +27,7 @@
 * MAIL_MAILER=mailgun
 * MAILGUN_DOMAIN=домен
 * MAILGUN_SECRET=ключ
+* MAIL_FROM_ADDRESS=no-reply@presents.com
 В командной строке:
 * composer require guzzlehttp/guzzle
 ## Настройка pusher ##
