@@ -30,10 +30,10 @@
 В командной строке:
 * composer require guzzlehttp/guzzle
 ## Настройка pusher ##
-PUSHER_APP_ID=ID приложения
-PUSHER_APP_KEY=Открытый ключ
-PUSHER_APP_SECRET=Защищенный ключ 
-PUSHER_APP_CLUSTER=Название приложения
+* PUSHER_APP_ID=ID приложения
+* PUSHER_APP_KEY=Открытый ключ
+* PUSHER_APP_SECRET=Защищенный ключ 
+* PUSHER_APP_CLUSTER=Название приложения
 ## Описание баз данных ##
 https://docs.google.com/spreadsheets/d/1MX7Bv8C_n7JVq0tKQGl7hubrzXLVgIlIjL06f2apmkM/edit?usp=sharing
 ## Описание баз api ##

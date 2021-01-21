@@ -11,6 +11,9 @@ Vue.component('join-group', require('./components/JoinGroup').default);
 Vue.component('chat-component', require('./components/ChatComponent').default);
 Vue.component('budget-component', require('./components/BudgetComponent').default);
 Vue.component('users-budget-component', require('./components/UsersBudgetComponent').default);
+Vue.component('passport-clients', require('./components/passport/Clients.vue').default);
+Vue.component('passport-authorized-clients', require('./components/passport/AuthorizedClients.vue').default);
+Vue.component('passport-personal-access-tokens', require('./components/passport/PersonalAccessTokens.vue').default);
 
 
 const app = new Vue({

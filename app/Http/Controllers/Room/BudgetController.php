@@ -18,6 +18,8 @@ class BudgetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        $user = \Auth::user();
+        dd($user);
         try {
             $data = $request->all();
             $user_id = $data['user_id'];
