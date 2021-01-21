@@ -24,6 +24,9 @@ Route::group([
     Route::get('/rooms/{room}/invite', 'InviteController@invite')->name('invite');
     Route::get('/rooms/{room}/join', 'JoinController@index')->name('join');
     Route::get('/rooms/{room}/exit', 'ExitController@index')->name('exit');
+    Route::post('/budget', 'BudgetController@store');
+    Route::post('/message', 'ChatController@index');
+    Route::get('/message/{id}', 'ChatController@all');
 });
 
 Route::group([

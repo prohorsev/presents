@@ -22,8 +22,8 @@ class MessageSend implements ShouldBroadcast
     {
         $this->message = $data['message'];
         $this->room_id = $data['room_id'];
-        $this->user_id = $data['user_id'];
-        $this->user_name = $data['user_name'];
+        $this->user_id = \Auth::id();
+        $this->user_name = \Auth::user()->name;
     }
     public function broadcastOn()
     {

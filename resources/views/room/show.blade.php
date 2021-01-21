@@ -38,13 +38,14 @@
                                     <p>{{ $room->birthday_date }}</p>
                                 </div>
                                 <hr class="mt20 mb20">
-                                <div>
+                                <div id="budget">
                                     <p class="d-flex aic">
                                         <svg class="ic20 mr10">
                                             <use xlink:href="{{ asset("storage/icons/sprite.svg#budget") }}"></use>
                                         </svg>
                                         Бюджет
                                     </p>
+                                    @csrf
                                     <budget-component :room_sum="{{ $room->birthday_sum }}"
                                                       :budget="{{ $room->budget }}"
                                                       :user_sum="{{ $user_sum }}" :room_id="{{ $room->id }}"
@@ -63,7 +64,8 @@
                                     <p class="mb10">Для приглашения друзей отправьте им ссылку: </p>
 
                                     <clipboard-component
-                                            :link="`http://presents.local/rooms/{{ $room->id }}/invite`"
+
+                                            :link="`{{url('rooms')}}/{{ $room->id }}/invite`"
                                     >
                                     </clipboard-component>
 
@@ -87,7 +89,8 @@
                         </div>
 
                     </div>
-                    <div class="congratulation__right">
+                    <div class="congratulation__right" id="chat">
+                        @csrf
                         <chat-component :room_id="{{ $room->id }}"
                                         :user_id="{{ Auth::id() }}"
                                         :user_name="'{{ Auth::user()->name }}'">
@@ -95,6 +98,9 @@
                     </div>
                 </div>
             </div>
+{{--            <passport-clients></passport-clients>--}}
+{{--            <passport-authorized-clients></passport-authorized-clients>--}}
+{{--            <passport-personal-access-tokens></passport-personal-access-tokens>--}}
         </div>
     @endauth
 @endsection

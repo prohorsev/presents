@@ -20,12 +20,11 @@ class BudgetController extends Controller
     public function store(Request $request) {
         try {
             $data = $request->all();
-            $user_id = $data['user_id'];
             $room = Room::query()->find($data['room_id']);
             $room->fill($data);
             $room->save();
             DB::table('room_user')->where('room_id', '=', $room->id)
-                ->where('user_id', '=', $user_id)->update(['sum' => $data['user_sum']]);
+                ->where('user_id', '=', \Auth::id())->update(['sum' => $data['user_sum']]);
 
             return response()->json(['answer' => 'ok']);
         } catch (\Exception $exception) {
