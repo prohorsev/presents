@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btnsmall {
-    @include btn(50px, 30px);
+    @include btn(100px, 30px);
 }
 
 .btn220 {

@@ -69,7 +69,7 @@
 
                 <div class="">
                     <div class="">
-                        <button type="submit" class="btn">
+                        <button type="submit" class="btnfull">
                             Зарегестрироваться
                         </button>
                     </div>

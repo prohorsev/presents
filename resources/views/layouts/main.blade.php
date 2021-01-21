@@ -50,13 +50,8 @@
                         <img src="{{asset("storage/images/user.svg")}}" alt="">
                     </a>
                 @else
-                    {{--                            <li class="menu__li">
-                                                    <a class="" href="#">
-                                                        {{ Auth::user()->name }}
-                                                    </a>
-                                                </li>--}}
 
-                    <a class="" href="{{ route('logout') }}"
+                    <a class="mr10 tgreyd fs16" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Выйти') }}

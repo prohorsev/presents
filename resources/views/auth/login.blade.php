@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="">
-                        <button type="submit" class="btn">
+                        <button type="submit" class="btnfull">
                             Войти в систему
                         </button>
                     </div>
