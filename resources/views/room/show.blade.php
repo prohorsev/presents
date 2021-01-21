@@ -74,7 +74,7 @@
                                 <hr class="mt20 mb20">
 
                                 <div>
-                                    <p>Здесь вы можете выбрать и купить подарок</p>
+                                    <p class="mb10">Здесь вы можете выбрать и купить подарок</p>
                                     <div class="market-place d-flex aic jcsb">
                                         <a target="_blank" href="https://www.ozon.ru" class="link__site">
                                             <img src="{{ asset('storage/images/ozon.png') }}" alt="">

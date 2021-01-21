@@ -78,8 +78,11 @@
 </script>
 
 <style scoped>
+label {
+    white-space: nowrap;
+}
+
 input {
     border-bottom: 1px solid #757575;
-    width: 50px;
 }
 </style>
