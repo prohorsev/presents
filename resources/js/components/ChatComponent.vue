@@ -28,6 +28,7 @@
       return {
         userMessage: '',
         messages: [],
+        token: null,
       }
     },
 
@@ -38,7 +39,7 @@
       sendMessage() {
         (
           async () => {
-            const response = await fetch('/api/message/', {
+            const response = await fetch('/message/', {
               method: 'post',
               headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -47,8 +48,9 @@
               body: JSON.stringify({
                 message: this.userMessage,
                 room_id: this.room_id,
-                user_id: this.user_id,
-                user_name: this.user_name,
+                _token: this.token,
+                // user_id: this.user_id,
+                // user_name: this.user_name,
               })
             });
             const answer = await response.json();
@@ -103,7 +105,7 @@
 
       (
         async () => {
-          const response = await fetch('/api/message/' + this.room_id, {
+          const response = await fetch('/message/' + this.room_id, {
             method: 'get',
           });
           const answer = await response.json();
@@ -124,6 +126,14 @@
             alert('Не удалось загрузить сообщения чата. Попробуйте еще раз');
           }
         })();
+
+      let inputs = chat.getElementsByTagName('input');
+      for (let input of inputs) {
+        if (input.name === '_token') {
+          this.token = input.value;
+          break;
+        }
+      }
     },
 
     updated() {

@@ -41,8 +41,8 @@ class ChatController extends Controller
     private function saveMessage($message) {
         $chatMessage = new ChatMessage();
         $chatMessage->fill($message);
+        $chatMessage->user_id = \Auth::id();
         $chatMessage->save();
-
     }
 
 }

@@ -31,6 +31,7 @@
 В командной строке:
 * composer require guzzlehttp/guzzle
 ## Настройка pusher ##
+* BROADCAST_DRIVER=pusher
 * PUSHER_APP_ID=ID приложения
 * PUSHER_APP_KEY=Открытый ключ
 * PUSHER_APP_SECRET=Защищенный ключ 

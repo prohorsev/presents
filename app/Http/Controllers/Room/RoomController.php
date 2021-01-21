@@ -61,6 +61,7 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $data = $request->except('_token');
         $data['admin_id'] = \Auth::id();
         $room = new Room();
@@ -102,12 +103,14 @@ class RoomController extends Controller
         $user_sum = \DB::table('room_user')->select('sum')
             ->where('room_user.room_id', '=', $id)
             ->where('room_user.user_id', '=', \Auth::id())->get()->toArray();
+        $token = (\Auth::user())->createToken(\Auth::getName())->plainTextToken;
         return view('room.show', [
             'room' => $room,
             'friends' => $friends,
             'organisator' => $organisator,
             'user_sum' => $user_sum[0]->sum,
             'isActive' => $isActive,
+            'token' => $token,
         ]);
     }
 

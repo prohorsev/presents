@@ -19,6 +19,7 @@
         now_user_sum: 0,
         last_user_sum: 0,
         vue_budget: 0,
+        token: null,
       }
     },
 
@@ -29,17 +30,18 @@
         this.vue_budget = this.vue_budget - +this.last_user_sum + +this.now_user_sum;
         (
             async () => {
-              const response = await fetch('/api/budget/', {
+              const response = await fetch('/budget/', {
                 method: 'post',
                 headers: {
                   'Accept': 'application/json, text/plain, */*',
-                  'Content-Type': 'application/json'
+                  'Content-Type': 'application/json',
+                  // "authorization": "Bearer " + this.token,
                 },
                 body: JSON.stringify({
                   user_sum: +this.now_user_sum,
                   room_id: this.room_id,
                   budget: this.vue_budget,
-                  user_id: this.user_id
+                  _token: this.token,
                 })
               });
               const answer = await response.json();
@@ -64,6 +66,13 @@
       this.vue_budget = this.budget;
       this.now_user_sum = this.user_sum;
       this.last_user_sum = this.user_sum;
+      let inputs = budget.getElementsByTagName('input');
+      for (let input of inputs) {
+        if (input.name === '_token') {
+          this.token = input.value;
+          break;
+        }
+      }
     }
   }
 </script>
