@@ -2,33 +2,57 @@
 
     <div class="congratulation">
         <div class="container">
+            <div class="congratulation__container mt30">
+                <div class="congratulation__left">
 
-            <div v-if="list" class="mt30">
-                <h2 class="fs36">Вы еще не состоите ни в одной группе</h2>
 
-            </div>
-            <div v-else>
-                <h1>Мои Группы</h1>
-                <div class="congratulation__container">
-                    <div class="congratulation__left">
+                    <div v-if="list" class="mt30">
+                        <h2 class="fs24">Вы еще не состоите ни в одной группе</h2>
+                    </div>
+
+                    <div v-else>
+                        <h3 class="fs24">Активные группы</h3>
                         <div
                             class="team-item"
                             v-for="(group, idx) in groups"
                             :key="idx"
                         >
-                            <router-link
-                                :to="{ name: 'roomPage' }"
-                                class="fs20 pt10 pb10 d-block"
-                            >{{ group.title }}</router-link>
-                            <hr>
+                            <div class="d-flex aifs jcsb">
+                                <router-link
+                                    :to="{ name: 'roomPage' }"
+                                    class="fs20"
+                                >{{ group.title }}
+                                </router-link>
+
+                                <a href=""
+                                   class="mr10"
+                                   style="color: orange"
+                                >изменить
+                                </a><!--  {{ route('room.edit', $room) }}-->
+
+                                <a href=""
+                                   class="mr10"
+                                   style="color: orange"
+                                >удалить
+                                </a><!--  {{ route('room.delete', $room) }}-->
+
+                            </div>
+                            <hr class="mt10 mb10">
                         </div>
                     </div>
 
+                    <router-link :to="{name: 'roomCreate'}" class="congratulation__btn mt30">Создать группу</router-link>
+                </div>
+
+                <div class="congratulation__right">
+
+                    <div class="congratulation__slider">
+                        <slider-component></slider-component>
+                    </div>
                 </div>
             </div>
-            <p class="mb20 fs26">Создайте группу:</p>
-            <router-link :to="{name: 'roomCreate'}" class="btn w250">Создать группу</router-link>
         </div>
+
     </div>
 </template>
 
