@@ -39,7 +39,7 @@
       sendMessage() {
         (
           async () => {
-            const response = await fetch('/message/', {
+            const response = await fetch('/message', {
               method: 'post',
               headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -105,7 +105,7 @@
 
       (
         async () => {
-          const response = await fetch('/message/' + this.room_id, {
+          const response = await fetch('/message' + this.room_id, {
             method: 'get',
           });
           const answer = await response.json();

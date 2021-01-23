@@ -30,7 +30,7 @@
         this.vue_budget = this.vue_budget - +this.last_user_sum + +this.now_user_sum;
         (
             async () => {
-              const response = await fetch('/budget/', {
+              const response = await fetch('/budget', {
                 method: 'post',
                 headers: {
                   'Accept': 'application/json, text/plain, */*',
